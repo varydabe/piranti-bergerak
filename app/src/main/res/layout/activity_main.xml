@@ -24,12 +24,14 @@
         android:gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@id/tvTitle">
         <ImageView
+            android:id="@+id/ivFoodIcon"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="80dp"
             android:src="@drawable/burger"
             tools:ignore="ContentDescription" />
         <ImageView
+            android:id="@+id/ivDrinkIcon"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/beverage"
@@ -50,6 +52,7 @@
             android:textSize="18sp"
             android:textColor="@color/black"/>
         <TextView
+            android:id="@+id/tvFoodMore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/tvFoodTitle"
@@ -91,6 +94,7 @@
             android:textSize="18sp"
             android:textColor="@color/black"/>
         <TextView
+            android:id="@+id/tvDrinkMore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/tvDrinkTitle"

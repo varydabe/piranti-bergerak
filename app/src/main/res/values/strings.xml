@@ -9,5 +9,5 @@
     <string name="drink_name">Drink name</string>
     <string name="main_activity_label">Main Activity</string>
     <string name="food_activity_label">Food Activity</string>
-    <string name="beverage_activity_label">Beverage Activity</string>
+    <string name="drink_activity_label">Beverage Activity</string>
 </resources>
