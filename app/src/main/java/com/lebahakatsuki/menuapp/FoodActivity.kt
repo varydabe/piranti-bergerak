@@ -11,6 +11,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lebahakatsuki.menuapp.adapter.ListFoodAdapter
+import com.lebahakatsuki.menuapp.adapter.ListFoodDetailAdapter
 import com.lebahakatsuki.menuapp.data.DrinksData
 import com.lebahakatsuki.menuapp.data.FoodsData
 import com.lebahakatsuki.menuapp.model.FoodDrink
@@ -37,7 +38,7 @@ class FoodActivity : AppCompatActivity() {
 
     private fun showRecyclerFood(){
         recyclerviewFoodDetail.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        val listFoodAdapter = ListFoodAdapter(listFood)
+        val listFoodAdapter = ListFoodDetailAdapter(listFood)
         recyclerviewFoodDetail.adapter = listFoodAdapter
     }
 }

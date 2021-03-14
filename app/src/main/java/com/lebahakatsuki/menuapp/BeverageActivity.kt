@@ -11,6 +11,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lebahakatsuki.menuapp.adapter.ListDrinkAdapter
+import com.lebahakatsuki.menuapp.adapter.ListDrinkDetailAdapter
 import com.lebahakatsuki.menuapp.data.DrinksData
 import com.lebahakatsuki.menuapp.data.FoodsData
 import com.lebahakatsuki.menuapp.model.FoodDrink
@@ -37,8 +38,8 @@ class BeverageActivity : AppCompatActivity() {
     }
 
     private fun showRecyclerDrink(){
-        recyclerviewDrinkDetail.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        val listDrinkAdapter = ListDrinkAdapter(listDrink)
+        recyclerviewDrinkDetail.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        val listDrinkAdapter = ListDrinkDetailAdapter(listDrink)
         recyclerviewDrinkDetail.adapter = listDrinkAdapter
     }
 }
