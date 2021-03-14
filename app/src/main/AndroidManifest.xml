@@ -9,15 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MenuApp">
-
+        <activity
+            android:name=".MainActivity2"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.MenuApp.NoActionBar"></activity>
         <activity
             android:name=".FoodActivity"
-            android:label="Food Activity"
-            android:theme="@style/Theme.MenuApp.NoActionBar">
-
-        </activity>
-        <activity android:name=".BeverageMenu">
-        </activity>
+            android:label="Food Activity"></activity>
+        <activity android:name=".BeverageActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
