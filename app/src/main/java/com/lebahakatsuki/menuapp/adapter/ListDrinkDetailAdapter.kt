@@ -1,5 +1,6 @@
 package com.lebahakatsuki.menuapp.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.lebahakatsuki.menuapp.DrinkActivity
+import com.lebahakatsuki.menuapp.MainActivity
 import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.model.FoodDrink
 
@@ -24,6 +27,11 @@ class ListDrinkDetailAdapter(private val listDrink: ArrayList<FoodDrink>) : Recy
 
         holder.tvDrink.text = foodDrink.name
         holder.tvPrice.text = foodDrink.price
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(it.context, MainActivity::class.java)
+            it.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
