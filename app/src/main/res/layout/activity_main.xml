@@ -62,12 +62,18 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tvFoodTitle"
             android:layout_marginTop="5dp">
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerviewFood"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
-                tools:listitem="@layout/list_food"/>
+                android:orientation="horizontal">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerviewFood"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginEnd="5dp"
+                    tools:listitem="@layout/list_food"/>
+            </LinearLayout>
         </HorizontalScrollView>
     </RelativeLayout>
     <RelativeLayout

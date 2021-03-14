@@ -32,13 +32,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showRecyclerFood(){
-        recyclerviewFood.layoutManager = LinearLayoutManager(this)
+        recyclerviewFood.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         val listFoodAdapter = ListFoodAdapter(listFood)
         recyclerviewFood.adapter = listFoodAdapter
     }
 
     private fun showRecyclerDrink(){
-        recyclerviewDrink.layoutManager = LinearLayoutManager(this)
+        recyclerviewDrink.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         val listDrinkAdapter = ListDrinkAdapter(listDrink)
         recyclerviewDrink.adapter = listDrinkAdapter
     }
