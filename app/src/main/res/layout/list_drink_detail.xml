@@ -9,7 +9,7 @@
     android:layout_gravity="fill"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp"
-    android:layout_marginVertical="25dp"
+    android:layout_marginVertical="10dp"
     android:paddingHorizontal="20dp"
     >
 
@@ -26,6 +26,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="10dp"
             android:src="@drawable/drink"
+            android:scaleY="1.2"
+            android:scaleX="1"
             tools:ignore="ContentDescription" />
         <LinearLayout
             android:layout_width="wrap_content"

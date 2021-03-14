@@ -9,7 +9,7 @@
     android:layout_gravity="fill"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp"
-    android:layout_marginVertical="25dp"
+    android:layout_marginVertical="10dp"
     >
 
     <LinearLayout
