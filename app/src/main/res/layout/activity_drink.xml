@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BeverageActivity">
+    tools:context=".DrinkActivity">
 
     <TextView
         android:id="@+id/tvJudulMenuDrink"
@@ -23,7 +23,7 @@
         android:id="@+id/recyclerviewDrinkDetail"
         android:layout_below="@+id/tvJudulMenuDrink"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
         android:paddingHorizontal="20dp"
         android:layout_marginHorizontal="35dp"
