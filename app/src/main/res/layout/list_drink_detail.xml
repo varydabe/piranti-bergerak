@@ -43,7 +43,8 @@
                 android:layout_marginStart="10dp"
                 android:text="@string/drink_name"
                 android:textSize="16sp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:fontFamily="@font/Roboto_Regular"/>
             <TextView
                 android:id="@+id/tvPrice"
                 android:layout_width="match_parent"
@@ -51,7 +52,8 @@
                 android:layout_marginStart="10dp"
                 android:text="@string/price"
                 android:textSize="14sp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:fontFamily="@font/Roboto_Regular"/>
 
         </LinearLayout>
 
