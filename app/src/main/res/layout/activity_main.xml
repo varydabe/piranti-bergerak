@@ -16,7 +16,7 @@
         android:text="@string/title_menu"
         android:textSize="30sp"
         android:textColor="@color/black"
-        android:fontFamily="@font/Montserrat_Bold"/>
+        android:fontFamily="@font/montserrat_bold"/>
     <LinearLayout
         android:id="@+id/llIcon"
         android:layout_width="match_parent"
@@ -52,7 +52,7 @@
             android:text="@string/food_menu"
             android:textSize="18sp"
             android:textColor="@color/black"
-            android:fontFamily="@font/Roboto_Bold"/>
+            android:fontFamily="@font/roboto_bold"/>
         <TextView
             android:id="@+id/tvFoodMore"
             android:layout_width="match_parent"
@@ -62,7 +62,7 @@
             android:text="@string/text_lainnya"
             android:textColor="#DBDBDB"
             android:textSize="14sp"
-            android:fontFamily="@font/Roboto_Regular"/>
+            android:fontFamily="@font/roboto_regular"/>
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,7 +95,8 @@
             android:layout_height="wrap_content"
             android:text="@string/drink_menu"
             android:textSize="18sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto_bold"/>
         <TextView
             android:id="@+id/tvDrinkMore"
             android:layout_width="match_parent"
@@ -104,7 +105,8 @@
             android:textAlignment="textEnd"
             android:text="@string/text_lainnya"
             android:textColor="#DBDBDB"
-            android:textSize="14sp"/>
+            android:textSize="14sp"
+            android:fontFamily="@font/roboto_regular"/>
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

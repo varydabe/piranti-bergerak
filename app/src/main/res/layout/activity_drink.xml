@@ -17,7 +17,7 @@
             android:text="Beverage Menu"
             android:textColor="@color/black"
             android:textSize="25sp"
-            android:fontFamily="@font/Montserrat_Bold"
+            android:fontFamily="@font/montserrat_bold"
             android:textAlignment="center"
             android:paddingVertical="20dp" />
 
