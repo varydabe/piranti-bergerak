@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:textSize="25sp"
             android:text="Food Menu"
-            android:fontFamily="@font/Montserrat_Bold"
+            android:fontFamily="@font/montserrat_bold"
             android:textColor="@color/black"
             android:textAlignment="center"
             android:paddingVertical="20dp"
