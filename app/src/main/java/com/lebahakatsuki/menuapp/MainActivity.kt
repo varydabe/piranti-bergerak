@@ -14,6 +14,7 @@ import com.lebahakatsuki.menuapp.adapter.ListFoodAdapter
 import com.lebahakatsuki.menuapp.data.DrinksData
 import com.lebahakatsuki.menuapp.data.FoodsData
 import com.lebahakatsuki.menuapp.model.FoodDrink
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerviewFood: RecyclerView
@@ -26,6 +27,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        ivFoodIcon.setOnClickListener {
+            val intent = Intent(it.context, ChooseMenuActivity::class.java)
+            it.context.startActivity(intent)
+        }
+        ivDrinkIcon.setOnClickListener {
+            val intent = Intent(it.context, ChooseMenuActivity::class.java)
+            it.context.startActivity(intent)
+        }
 
         recyclerviewFood = findViewById(R.id.recyclerviewFood)
         recyclerviewFood.setHasFixedSize(true)
@@ -52,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-
+/*
         findViewById<ImageView>(R.id.ivFoodIcon).setOnClickListener {
             navigateToFood()
         }
@@ -68,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvDrinkMore).setOnClickListener {
             navigateToDrink()
         }
-
+*/
     }
 
     private fun navigateToFood() {
