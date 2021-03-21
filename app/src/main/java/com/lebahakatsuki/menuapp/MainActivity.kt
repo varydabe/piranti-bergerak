@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -79,6 +80,16 @@ class MainActivity : AppCompatActivity() {
             navigateToDrink()
         }
 */
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Toast.makeText(applicationContext, "Selamat Datang", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onPause() {
+        super.onPause()
+
     }
 
     private fun navigateToFood() {

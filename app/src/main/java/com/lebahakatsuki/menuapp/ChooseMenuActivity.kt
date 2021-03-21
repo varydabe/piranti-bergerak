@@ -25,6 +25,16 @@ class ChooseMenuActivity : AppCompatActivity() {
             finish()
         }
     }
+    
+    override fun onResume() {
+        super.onResume()
+        Toast.makeText(applicationContext, "Pilih menu kesukaanmu", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+    }
 
     override fun onDestroy() {
         super.onDestroy()
