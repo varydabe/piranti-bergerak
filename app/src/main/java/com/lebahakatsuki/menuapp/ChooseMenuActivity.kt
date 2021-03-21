@@ -3,6 +3,8 @@ package com.lebahakatsuki.menuapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import com.lebahakatsuki.menuapp.adapter.ViewPagerAdapter
 import kotlinx.android.synthetic.main.activity_choose_menu.*
 
@@ -14,9 +16,18 @@ class ChooseMenuActivity : AppCompatActivity() {
         viewPager.adapter = ViewPagerAdapter(supportFragmentManager)
         tabs.setupWithViewPager(viewPager)
 
-        btnOrder.setOnClickListener {
+        btnCancel.setOnClickListener {
             val intent = Intent(it.context, MainActivity::class.java)
             it.context.startActivity(intent)
         }
+
+        btnOrder.setOnClickListener {
+            finish()
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Toast.makeText(applicationContext, "Order diproses", Toast.LENGTH_SHORT).show()
     }
 }
