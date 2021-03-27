@@ -1,4 +1,4 @@
-package com.lebahakatsuki.menuapp.fragment
+package com.lebahakatsuki.menuapp.ui.main.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lebahakatsuki.menuapp.R
-import com.lebahakatsuki.menuapp.adapter.ListFoodDetailAdapter
-import com.lebahakatsuki.menuapp.data.FoodsData
-import com.lebahakatsuki.menuapp.model.FoodDrink
+import com.lebahakatsuki.menuapp.ui.main.adapter.ListFoodDetailAdapter
+import com.lebahakatsuki.menuapp.data.resource.FoodsData
+import com.lebahakatsuki.menuapp.data.model.FoodDrink
 
 /**
  * A simple [Fragment] subclass.

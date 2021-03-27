@@ -1,11 +1,11 @@
-package com.lebahakatsuki.menuapp
+package com.lebahakatsuki.menuapp.ui.main.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
-import com.lebahakatsuki.menuapp.adapter.ViewPagerAdapter
+import com.lebahakatsuki.menuapp.R
+import com.lebahakatsuki.menuapp.ui.main.adapter.ViewPagerAdapter
 import kotlinx.android.synthetic.main.activity_choose_menu.*
 
 class ChooseMenuActivity : AppCompatActivity() {

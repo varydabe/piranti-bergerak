@@ -1,4 +1,4 @@
-package com.lebahakatsuki.menuapp.adapter
+package com.lebahakatsuki.menuapp.ui.main.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,30 +9,30 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.lebahakatsuki.menuapp.R
-import com.lebahakatsuki.menuapp.model.FoodDrink
+import com.lebahakatsuki.menuapp.data.model.FoodDrink
 
-class ListDrinkAdapter(private val listDrink: ArrayList<FoodDrink>) : RecyclerView.Adapter<ListDrinkAdapter.ListViewHolder>() {
+class ListFoodAdapter(private val listFood: ArrayList<FoodDrink>) : RecyclerView.Adapter<ListFoodAdapter.ListViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.list_drink, parent, false)
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.list_food, parent, false)
         return ListViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val foodDrink = listDrink[position]
+        val foodDrink = listFood[position]
 
         Glide.with(holder.itemView.context).load(foodDrink.photo).apply(RequestOptions().override(350,550)).into(holder.ivPhoto)
 
-        holder.tvDrink.text = foodDrink.name
+        holder.tvFood.text = foodDrink.name
         holder.tvPrice.text = foodDrink.price
     }
 
     override fun getItemCount(): Int {
-        return listDrink.size
+        return listFood.size
     }
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        var ivPhoto: ImageView = itemView.findViewById(R.id.ivDrink)
-        var tvDrink: TextView = itemView.findViewById(R.id.tvDrink)
+        var ivPhoto: ImageView = itemView.findViewById(R.id.ivFood)
+        var tvFood: TextView = itemView.findViewById(R.id.tvFood)
         var tvPrice: TextView = itemView.findViewById(R.id.tvPrice)
     }
 }

@@ -1,4 +1,4 @@
-package com.lebahakatsuki.menuapp.model
+package com.lebahakatsuki.menuapp.data.model
 
 data class FoodDrink(
     var name: String = "",
