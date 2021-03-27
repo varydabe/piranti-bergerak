@@ -1,20 +1,18 @@
-package com.lebahakatsuki.menuapp
+package com.lebahakatsuki.menuapp.ui.main.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.lebahakatsuki.menuapp.adapter.ListDrinkAdapter
-import com.lebahakatsuki.menuapp.adapter.ListFoodAdapter
-import com.lebahakatsuki.menuapp.data.DrinksData
-import com.lebahakatsuki.menuapp.data.FoodsData
-import com.lebahakatsuki.menuapp.model.FoodDrink
+import com.lebahakatsuki.menuapp.R
+import com.lebahakatsuki.menuapp.ui.main.adapter.ListDrinkAdapter
+import com.lebahakatsuki.menuapp.ui.main.adapter.ListFoodAdapter
+import com.lebahakatsuki.menuapp.data.resource.DrinksData
+import com.lebahakatsuki.menuapp.data.resource.FoodsData
+import com.lebahakatsuki.menuapp.data.model.FoodDrink
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

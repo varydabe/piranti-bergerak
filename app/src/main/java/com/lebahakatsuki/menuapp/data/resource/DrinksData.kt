@@ -1,7 +1,7 @@
-package com.lebahakatsuki.menuapp.data
+package com.lebahakatsuki.menuapp.data.resource
 
 import com.lebahakatsuki.menuapp.R
-import com.lebahakatsuki.menuapp.model.FoodDrink
+import com.lebahakatsuki.menuapp.data.model.FoodDrink
 
 object DrinksData {
     private val drinkNames = arrayOf("Es Teh", "Teh", "Es Jeruk", "Air Mineral", "Teh Botol")

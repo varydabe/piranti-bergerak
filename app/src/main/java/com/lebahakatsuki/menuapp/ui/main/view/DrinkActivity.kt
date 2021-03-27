@@ -1,14 +1,13 @@
-package com.lebahakatsuki.menuapp
+package com.lebahakatsuki.menuapp.ui.main.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.lebahakatsuki.menuapp.adapter.ListDrinkAdapter
-import com.lebahakatsuki.menuapp.adapter.ListDrinkDetailAdapter
-import com.lebahakatsuki.menuapp.data.DrinksData
-import com.lebahakatsuki.menuapp.data.FoodsData
-import com.lebahakatsuki.menuapp.model.FoodDrink
+import com.lebahakatsuki.menuapp.R
+import com.lebahakatsuki.menuapp.ui.main.adapter.ListDrinkDetailAdapter
+import com.lebahakatsuki.menuapp.data.resource.DrinksData
+import com.lebahakatsuki.menuapp.data.model.FoodDrink
 
 class DrinkActivity : AppCompatActivity() {
     private lateinit var recyclerviewDrinkDetail: RecyclerView

@@ -1,4 +1,4 @@
-package com.lebahakatsuki.menuapp.adapter
+package com.lebahakatsuki.menuapp.ui.main.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -9,10 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.lebahakatsuki.menuapp.DrinkActivity
-import com.lebahakatsuki.menuapp.FoodActivity
+import com.lebahakatsuki.menuapp.ui.main.view.DrinkActivity
 import com.lebahakatsuki.menuapp.R
-import com.lebahakatsuki.menuapp.model.FoodDrink
+import com.lebahakatsuki.menuapp.data.model.FoodDrink
 
 class ListFoodDetailAdapter(private val listFood: ArrayList<FoodDrink>) : RecyclerView.Adapter<ListFoodDetailAdapter.ListViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -27,11 +26,6 @@ class ListFoodDetailAdapter(private val listFood: ArrayList<FoodDrink>) : Recycl
 
         holder.tvFood.text = foodDrink.name
         holder.tvPrice.text = foodDrink.price
-
-        holder.itemView.setOnClickListener {
-            val intent = Intent(it.context, DrinkActivity::class.java)
-            it.context.startActivity(intent)
-        }
     }
 
     override fun getItemCount(): Int {
