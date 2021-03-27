@@ -1,6 +1,5 @@
 package com.lebahakatsuki.menuapp.ui.main.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +11,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.lebahakatsuki.menuapp.ui.main.view.DrinkActivity
 import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.data.model.FoodDrink
+import com.lebahakatsuki.menuapp.ui.main.view.FoodFragment
 
 class ListFoodDetailAdapter(private val listFood: ArrayList<FoodDrink>) : RecyclerView.Adapter<ListFoodDetailAdapter.ListViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
