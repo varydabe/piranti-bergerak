@@ -28,21 +28,25 @@ class MainActivity : AppCompatActivity() {
         val ivFoodIcon = findViewById<ImageView>(R.id.ivFoodIcon)
         ivFoodIcon.setOnClickListener {
             val intent = Intent(it.context, ChooseMenuActivity::class.java)
+            intent.putExtra("POSITION", 0)
             it.context.startActivity(intent)
         }
         val ivDrinkIcon = findViewById<ImageView>(R.id.ivDrinkIcon)
         ivDrinkIcon.setOnClickListener {
             val intent = Intent(it.context, ChooseMenuActivity::class.java)
+            intent.putExtra("POSITION", 1)
             it.context.startActivity(intent)
         }
         val tvFoodMore = findViewById<TextView>(R.id.tvFoodMore)
         tvFoodMore.setOnClickListener {
             val intent = Intent(it.context, ChooseMenuActivity::class.java)
+            intent.putExtra("POSITION", 0)
             it.context.startActivity(intent)
         }
         val tvDrinkMore = findViewById<TextView>(R.id.tvDrinkMore)
         tvDrinkMore.setOnClickListener {
             val intent = Intent(it.context, ChooseMenuActivity::class.java)
+            intent.putExtra("POSITION", 1)
             it.context.startActivity(intent)
         }
         recyclerviewFood = findViewById(R.id.recyclerviewFood)

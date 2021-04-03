@@ -18,6 +18,7 @@ class ChooseMenuActivity : AppCompatActivity() {
         val viewPager = findViewById<ViewPager>(R.id.viewPager)
         val tabs = findViewById<TabLayout>(R.id.tabs)
         viewPager.adapter = ViewPagerAdapter(supportFragmentManager)
+        viewPager.currentItem = intent.getIntExtra("POSITION", 0)
         tabs.setupWithViewPager(viewPager)
 
         val btnOrder = findViewById<Button>(R.id.btnOrder)
@@ -37,11 +38,6 @@ class ChooseMenuActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Toast.makeText(applicationContext, "Pilih menu kesukaanmu", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onPause() {
-        super.onPause()
-
     }
 
     override fun onDestroy() {
