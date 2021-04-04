@@ -22,7 +22,7 @@ Build the app using Android Studio.
 
 - **(15/03/21)** Initialize menu app with 3 page and 2 navigation 
 - **(22/03/21)** Change activity to fragment view and add Activity Lifecycle (OnCreate, OnPause, OnResume, and OnDestroy) 
-- **(05/04/21)** Apply Model View ViewModel (MVVM) Architechture
+- **(05/04/21)** Apply Model View ViewModel (MVVM) Architecture
 - **Next** Consume API from third party, there's posibility to change the app theme. 
 
 ## Maintainers
