@@ -34,7 +34,6 @@ class DrinkFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_drink, container, false)
 
         recyclerviewDrinkDetail = v.findViewById(R.id.recyclerviewDrinkDetail) as RecyclerView
