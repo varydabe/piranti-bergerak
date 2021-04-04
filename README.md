@@ -2,6 +2,10 @@
 
 Menu App is an Android app that digitalize your restaurant menu and allow user to choose their menu easily.
 
+## Overview
+<img src="images/home.jpeg" alt="home" width="200" height="350"/>   <img src="images/foodlist.jpeg" alt="foodlist" width="200" height="350"/>   <img src="images/drinklist.jpeg" alt="drinklist" width="200" height="350"/>   
+Home view, Food list view, and Drink list view of Menu App
+
 ## Installation
 
 Clone this repository and import into Android Studio
@@ -16,10 +20,10 @@ Build the app using Android Studio.
 
 ## Roadmap
 
-- (15/03/21) Initialize menu app with 3 page and 2 navigation 
-- (22/03/21) Change activity to fragment view and add Activity Lifecycle (OnCreate, OnPause, OnResume, and OnDestroy) 
-- (05/04/21) Apply Model View ViewModel (MVVM) Architechture
-- <b>Next</b> Consume API from third party, there's posibility to change the app theme. 
+- **(15/03/21)** Initialize menu app with 3 page and 2 navigation 
+- **(22/03/21)** Change activity to fragment view and add Activity Lifecycle (OnCreate, OnPause, OnResume, and OnDestroy) 
+- **(05/04/21)** Apply Model View ViewModel (MVVM) Architechture
+- **Next** Consume API from third party, there's posibility to change the app theme. 
 
 ## Maintainers
 This project is mantained by:
