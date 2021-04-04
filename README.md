@@ -1,10 +1,10 @@
 # Piranti Bergerak - Menu App
 
-Menu App is an Android app that digitalize your restaurant menu and allow user to choose their menu easily.
+Menu App is a simple Android app that digitalize your restaurant menu and allow user to choose the menu easily.
 
 ## Overview
 <img src="images/home.jpeg" alt="home" width="200" height="350"/>   <img src="images/foodlist.jpeg" alt="foodlist" width="200" height="350"/>   <img src="images/drinklist.jpeg" alt="drinklist" width="200" height="350"/>   
-Home view, Food list view, and Drink list view of Menu App
+Home view, Food list view, and Drink list view of Menu App.
 
 ## Installation
 
