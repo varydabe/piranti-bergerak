@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lebahakatsuki.menuapp.R
@@ -14,10 +16,14 @@ import com.lebahakatsuki.menuapp.ui.main.adapter.ListFoodAdapter
 import com.lebahakatsuki.menuapp.data.resource.DrinksData
 import com.lebahakatsuki.menuapp.data.resource.FoodsData
 import com.lebahakatsuki.menuapp.data.model.FoodDrink
+import com.lebahakatsuki.menuapp.ui.main.adapter.ListFoodDetailAdapter
+import com.lebahakatsuki.menuapp.ui.main.viewmodel.FoodFragmentViewModel
+import com.lebahakatsuki.menuapp.ui.main.viewmodel.MenuActivityViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerviewFood: RecyclerView
     private lateinit var recyclerviewDrink: RecyclerView
+    lateinit var menuActivityViewModel: MenuActivityViewModel
     private var listFood: ArrayList<FoodDrink> = arrayListOf()
     private var listDrink: ArrayList<FoodDrink> = arrayListOf()
 
@@ -49,15 +55,34 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("POSITION", 1)
             it.context.startActivity(intent)
         }
-        recyclerviewFood = findViewById(R.id.recyclerviewFood)
+
+        menuActivityViewModel = ViewModelProviders.of(this).get(MenuActivityViewModel::class.java)
+
+        recyclerviewFood = findViewById(R.id.recyclerviewFood) as RecyclerView
         recyclerviewFood.setHasFixedSize(true)
-        recyclerviewDrink = findViewById(R.id.recyclerviewDrink)
+
+        menuActivityViewModel.getFoodArrayList().observe(this, Observer {
+
+            val listFoodAdapter = ListFoodAdapter(it)
+            recyclerviewFood.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+            recyclerviewFood.adapter = listFoodAdapter
+        })
+
+        recyclerviewDrink = findViewById(R.id.recyclerviewDrink) as RecyclerView
         recyclerviewDrink.setHasFixedSize(true)
 
-        listFood.addAll(FoodsData.listData)
-        showRecyclerFood()
-        listDrink.addAll(DrinksData.listData)
-        showRecyclerDrink()
+        menuActivityViewModel.getDrinkArrayList().observe(this, Observer {
+
+            val listDrinkAdapter = ListDrinkAdapter(it)
+            recyclerviewDrink.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+            recyclerviewDrink.adapter = listDrinkAdapter
+        })
+
+
+//        listFood.addAll(FoodsData.listData)
+//        showRecyclerFood()
+//        listDrink.addAll(DrinksData.listData)
+//        showRecyclerDrink()
     }
 
     private fun showRecyclerFood(){
