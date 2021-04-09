@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        Toast.makeText(applicationContext, "Selamat Datang", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(applicationContext, "Selamat Datang", Toast.LENGTH_SHORT).show()
     }
 
     override fun onPause() {

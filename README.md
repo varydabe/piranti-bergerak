@@ -1,6 +1,6 @@
 # Piranti Bergerak - Menu App
 
-Menu App is a simple Android app that digitalize your restaurant menu and allow user to choose the menu easily.
+Menu App is a simple Android app that digitalize your restaurant menu and allow user to choose the menu easily. This application was built with 2 activities and 2 fragmen which connected by 2 kinds of navigation. Intent navigation is used to move between activities and View Pager is used to move between fragment. When the system in Fragment Food or Drink is paused, the application will pop a Toast "Sistem berhenti sementara". And when the system resumes, the application will pop a Tost "Pilih menu kesukaanmu". If the Menu Activity is destroyed, the application will redirect to Main Activity and the system will pop a Toast "Order diproses". 
 
 ## Overview
 <img src="images/home.jpeg" alt="home" width="200" height="350"/>   <img src="images/foodlist.jpeg" alt="foodlist" width="200" height="350"/>   <img src="images/drinklist.jpeg" alt="drinklist" width="200" height="350"/>   
