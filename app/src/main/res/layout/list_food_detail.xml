@@ -5,6 +5,7 @@
     android:id="@+id/cardviewFoodDetail"
     android:layout_width="300dp"
     android:layout_height="150dp"
+    android:background="@drawable/custom_cardview"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="fill"
     app:cardCornerRadius="8dp"
@@ -40,7 +41,7 @@
                 android:layout_marginStart="10dp"
                 android:text="@string/food_name"
                 android:textSize="16sp"
-                android:textColor="@color/black"
+                android:textColor="@drawable/text_color_cardview"
                 android:fontFamily="@font/roboto_regular"/>
             <TextView
                 android:id="@+id/tvPrice"
@@ -49,7 +50,7 @@
                 android:layout_marginStart="10dp"
                 android:text="@string/price"
                 android:textSize="14sp"
-                android:textColor="@color/black"
+                android:textColor="@drawable/text_color_cardview"
                 android:fontFamily="@font/roboto_regular"/>
 
         </LinearLayout>

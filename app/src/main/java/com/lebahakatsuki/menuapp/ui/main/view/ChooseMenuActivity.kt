@@ -44,4 +44,9 @@ class ChooseMenuActivity : AppCompatActivity() {
         super.onDestroy()
         Toast.makeText(applicationContext, "Order diproses", Toast.LENGTH_SHORT).show()
     }
+
+    override fun onPause() {
+        super.onPause()
+        Toast.makeText(applicationContext, "Sistem berhenti sementara", Toast.LENGTH_SHORT).show()
+    }
 }
