@@ -4,6 +4,7 @@
 Menu App is a simple Android app that digitalize your restaurant menu and allow user to choose the menu easily. This application was built with 2 activities (Main and Choose Menu) and 2 fragment (Food and Drink) which connected by 2 kinds of navigation (Intent and View Pager). Intent navigation is used to move between activities and View Pager is used to move between fragment. When the system in Fragment Food or Drink is paused, the application will pop a Toast "Sistem berhenti sementara". And when the system resumes, the application will pop a Tost "Pilih menu kesukaanmu". If the Menu Activity is destroyed, the application will redirect to Main Activity and the system will pop a Toast "Order diproses". 
 
 ### Architecture
+![MVVM Architecture](images/mvvm.png)
 Menu App is using MVVM(Model-View-ViewModel) architecture. Every View(activity and fragment) have one ViewModel that connected to a Model. We used MVVM because this architecture is loosely-coupled so it's easier to maintenance as the complexity increase. As an example, a ViewModel doesn't have any reference to any View, just View that have reference to the ViewModel and this mean View and ViewModel doesn't have 1:1 tight bound reference. This will make a change in the design and code will be easier. With the plan of changing app theme and design in mind, we choose MVVM as our architecture.
 
 ## Visuals
