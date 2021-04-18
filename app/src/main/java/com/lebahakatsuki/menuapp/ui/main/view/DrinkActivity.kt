@@ -17,17 +17,16 @@ class DrinkActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drink)
 
-
         recyclerviewDrinkDetail = findViewById(R.id.recyclerviewDrinkDetail)
         recyclerviewDrinkDetail.setHasFixedSize(true)
 
         listDrink.addAll(DrinksData.listData)
-        showRecyclerDrink()
+        //showRecyclerDrink()
     }
 
-    private fun showRecyclerDrink(){
+    /*private fun showRecyclerDrink(){
         recyclerviewDrinkDetail.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         val listDrinkDetailAdapter = ListDrinkDetailAdapter(listDrink)
         recyclerviewDrinkDetail.adapter = listDrinkDetailAdapter
-    }
+    }*/
 }

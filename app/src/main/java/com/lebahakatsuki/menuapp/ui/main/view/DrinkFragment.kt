@@ -15,16 +15,11 @@ import com.lebahakatsuki.menuapp.data.resource.DrinksData
 import com.lebahakatsuki.menuapp.data.model.FoodDrink
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.DrinkFragmentViewModel
 
-/**
- * A simple [Fragment] subclass.
- * Use the [DrinkFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class DrinkFragment : Fragment() {
     lateinit var recyclerviewDrinkDetail: RecyclerView
     lateinit var drinkFragmentViewModel: DrinkFragmentViewModel
     private var listDrink: ArrayList<FoodDrink> = arrayListOf()
-    private var drinkAdapter: ListDrinkDetailAdapter?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,13 +32,13 @@ class DrinkFragment : Fragment() {
         val v = inflater.inflate(R.layout.fragment_drink, container, false)
 
         recyclerviewDrinkDetail = v.findViewById(R.id.recyclerviewDrinkDetail) as RecyclerView
+        val adapter = ListDrinkDetailAdapter()
+        recyclerviewDrinkDetail.adapter = adapter
+        recyclerviewDrinkDetail.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 
         drinkFragmentViewModel = ViewModelProviders.of(this).get(DrinkFragmentViewModel::class.java)
-        drinkFragmentViewModel.getArrayList().observe(viewLifecycleOwner, Observer {
-
-            drinkAdapter = ListDrinkDetailAdapter(it)
-            recyclerviewDrinkDetail.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-            recyclerviewDrinkDetail.adapter = drinkAdapter
+        drinkFragmentViewModel.getAllDrink.observe(viewLifecycleOwner, Observer {
+            adapter.setData(it)
         })
 
         /*
@@ -55,9 +50,9 @@ class DrinkFragment : Fragment() {
         return v
     }
 
-    private fun showRecyclerDrink(){
+    /*private fun showRecyclerDrink(){
         recyclerviewDrinkDetail.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         val listDrinkDetailAdapter = ListDrinkDetailAdapter(listDrink)
         recyclerviewDrinkDetail.adapter = listDrinkDetailAdapter
-    }
+    }*/
 }
