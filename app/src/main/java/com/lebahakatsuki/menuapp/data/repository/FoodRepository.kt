@@ -1,7 +1,7 @@
 package com.lebahakatsuki.menuapp.data.repository
 
 import androidx.lifecycle.LiveData
-import com.lebahakatsuki.menuapp.data.`interface`.FoodDao
+import com.lebahakatsuki.menuapp.data.database.FoodDao
 import com.lebahakatsuki.menuapp.data.model.FoodEntity
 
 class FoodRepository(private val foodDao: FoodDao) {

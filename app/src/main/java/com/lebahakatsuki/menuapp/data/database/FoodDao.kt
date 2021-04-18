@@ -1,4 +1,4 @@
-package com.lebahakatsuki.menuapp.data.`interface`
+package com.lebahakatsuki.menuapp.data.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

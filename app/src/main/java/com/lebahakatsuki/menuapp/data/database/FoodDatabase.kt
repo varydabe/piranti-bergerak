@@ -4,10 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.lebahakatsuki.menuapp.data.`interface`.FoodDao
 import com.lebahakatsuki.menuapp.data.model.FoodEntity
 
-@Database(entities = [FoodEntity::class], version = 1, exportSchema = false)
+@Database(entities = [FoodEntity::class], version = 1)
 abstract class FoodDatabase: RoomDatabase() {
     abstract fun foodDao(): FoodDao
 
@@ -24,7 +23,7 @@ abstract class FoodDatabase: RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     FoodDatabase::class.java,
-                    "food_database"
+                    "foodDatabase"
                 ).build()
                 INSTANCE = instance
                 return instance
