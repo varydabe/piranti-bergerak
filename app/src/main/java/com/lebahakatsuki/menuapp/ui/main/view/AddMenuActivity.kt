@@ -11,13 +11,16 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.lebahakatsuki.menuapp.R
+import com.lebahakatsuki.menuapp.data.model.DrinkEntity
 import com.lebahakatsuki.menuapp.data.model.FoodEntity
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.AddMenuActivityViemModel
+import com.lebahakatsuki.menuapp.ui.main.viewmodel.DrinkFragmentViewModel
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.FoodFragmentViewModel
 
 class AddMenuActivity : AppCompatActivity() {
     private lateinit var addMenuActivityViemModel: AddMenuActivityViemModel
     private lateinit var foodFragmentViewModel: FoodFragmentViewModel
+    private lateinit var drinkFragmentViewModel: DrinkFragmentViewModel
     private var category: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +29,7 @@ class AddMenuActivity : AppCompatActivity() {
 
         addMenuActivityViemModel = ViewModelProvider(this).get(AddMenuActivityViemModel::class.java)
         foodFragmentViewModel = ViewModelProvider(this).get(FoodFragmentViewModel::class.java)
+        drinkFragmentViewModel = ViewModelProvider(this).get(DrinkFragmentViewModel::class.java)
         val menuEditText = findViewById<EditText>(R.id.menuEditText)
         val priceEditText = findViewById<EditText>(R.id.priceEditText)
         val categoryRadioGroup = findViewById<RadioGroup>(R.id.categoryRadioGroup)
@@ -58,7 +62,10 @@ class AddMenuActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Menu berhasil ditambahkan", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(applicationContext, MainActivity::class.java))
             } else if (category.equals("Drink")){
-
+                val drinkEntity = DrinkEntity(0, menuName, price)
+                drinkFragmentViewModel.addDrink(drinkEntity)
+                Toast.makeText(applicationContext, "Menu berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(applicationContext, MainActivity::class.java))
             }
         }
     }
