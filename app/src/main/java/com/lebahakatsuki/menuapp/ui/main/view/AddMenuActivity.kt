@@ -57,6 +57,8 @@ class AddMenuActivity : AppCompatActivity() {
                 foodFragmentViewModel.addFood(foodEntity)
                 Toast.makeText(applicationContext, "Menu berhasil ditambahkan", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(applicationContext, MainActivity::class.java))
+            } else if (category.equals("Drink")){
+
             }
         }
     }
