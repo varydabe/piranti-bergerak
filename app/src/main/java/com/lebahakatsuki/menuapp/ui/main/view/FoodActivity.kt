@@ -21,12 +21,12 @@ class FoodActivity : AppCompatActivity() {
         recyclerviewFoodDetail.setHasFixedSize(true)
 
         listFood.addAll(FoodsData.listData)
-        showRecyclerFood()
+        //showRecyclerFood()
     }
 
-    private fun showRecyclerFood(){
+    /*private fun showRecyclerFood(){
         recyclerviewFoodDetail.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         val listFoodDetailAdapter = ListFoodDetailAdapter(listFood)
         recyclerviewFoodDetail.adapter = listFoodDetailAdapter
-    }
+    }*/
 }

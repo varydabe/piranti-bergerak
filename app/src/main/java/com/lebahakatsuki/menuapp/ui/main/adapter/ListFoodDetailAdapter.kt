@@ -11,9 +11,12 @@ import com.bumptech.glide.request.RequestOptions
 import com.lebahakatsuki.menuapp.ui.main.view.DrinkActivity
 import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.data.model.FoodDrink
+import com.lebahakatsuki.menuapp.data.model.FoodEntity
 import com.lebahakatsuki.menuapp.ui.main.view.FoodFragment
 
-class ListFoodDetailAdapter(private val listFood: ArrayList<FoodDrink>) : RecyclerView.Adapter<ListFoodDetailAdapter.ListViewHolder>() {
+class ListFoodDetailAdapter: RecyclerView.Adapter<ListFoodDetailAdapter.ListViewHolder>() {
+    private var listFood = emptyList<FoodEntity>()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.list_food_detail, parent, false)
         return ListViewHolder(view)
@@ -22,9 +25,9 @@ class ListFoodDetailAdapter(private val listFood: ArrayList<FoodDrink>) : Recycl
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val foodDrink = listFood[position]
 
-        Glide.with(holder.itemView.context).load(foodDrink.photo).apply(RequestOptions().override(350,550)).into(holder.ivPhoto)
+        //Glide.with(holder.itemView.context).load(foodDrink.photo).apply(RequestOptions().override(350,550)).into(holder.ivPhoto)
 
-        holder.tvFood.text = foodDrink.name
+        holder.tvFood.text = foodDrink.foodName
         holder.tvPrice.text = foodDrink.price
     }
 
@@ -36,5 +39,10 @@ class ListFoodDetailAdapter(private val listFood: ArrayList<FoodDrink>) : Recycl
         var ivPhoto: ImageView = itemView.findViewById(R.id.ivFood)
         var tvFood: TextView = itemView.findViewById(R.id.tvFood)
         var tvPrice: TextView = itemView.findViewById(R.id.tvPrice)
+    }
+
+    fun setData(listFood: List<FoodEntity>){
+        this.listFood = listFood
+        notifyDataSetChanged()
     }
 }
