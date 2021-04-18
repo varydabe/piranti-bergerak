@@ -24,7 +24,6 @@ class FoodFragment : Fragment() {
     lateinit var recyclerviewFoodDetail: RecyclerView
     lateinit var foodFragmentViewModel: FoodFragmentViewModel
     private var listFood: ArrayList<FoodDrink> = arrayListOf()
-    private var foodAdapter: ListFoodDetailAdapter?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,13 +37,13 @@ class FoodFragment : Fragment() {
         val v = inflater.inflate(R.layout.fragment_food, container, false)
 
         recyclerviewFoodDetail = v.findViewById(R.id.recyclerviewFoodDetail) as RecyclerView
+        val adapter = ListFoodDetailAdapter()
+        recyclerviewFoodDetail.adapter = adapter
+        recyclerviewFoodDetail.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 
         foodFragmentViewModel = ViewModelProviders.of(this).get(FoodFragmentViewModel::class.java)
-        foodFragmentViewModel.getArrayList().observe(viewLifecycleOwner, Observer {
-
-            foodAdapter = ListFoodDetailAdapter(it)
-            recyclerviewFoodDetail.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-            recyclerviewFoodDetail.adapter = foodAdapter
+        foodFragmentViewModel.getAllFood.observe(viewLifecycleOwner, Observer {
+            adapter.setData(it)
         })
 
         /*
@@ -56,9 +55,9 @@ class FoodFragment : Fragment() {
         return v
     }
 
-    private fun showRecyclerFood(){
+    /*private fun showRecyclerFood(){
         recyclerviewFoodDetail.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         val listFoodDetailAdapter = ListFoodDetailAdapter(listFood)
         recyclerviewFoodDetail.adapter = listFoodDetailAdapter
-    }
+    }*/
 }

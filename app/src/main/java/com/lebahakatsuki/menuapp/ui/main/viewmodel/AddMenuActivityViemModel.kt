@@ -1,17 +1,17 @@
 package com.lebahakatsuki.menuapp.ui.main.viewmodel
 
 import android.app.Application
-import androidx.lifecycle.*
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.viewModelScope
 import com.lebahakatsuki.menuapp.data.database.FoodDatabase
-import com.lebahakatsuki.menuapp.data.model.FoodDrink
 import com.lebahakatsuki.menuapp.data.model.FoodEntity
 import com.lebahakatsuki.menuapp.data.repository.FoodRepository
-import com.lebahakatsuki.menuapp.data.resource.FoodsData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class FoodFragmentViewModel(application: Application): AndroidViewModel(application) {
-    val getAllFood: LiveData<List<FoodEntity>>
+class AddMenuActivityViemModel(application: Application): AndroidViewModel(application) {
+    private val getAllFood: LiveData<List<FoodEntity>>
     private val repository: FoodRepository
 
     init {
@@ -25,17 +25,4 @@ class FoodFragmentViewModel(application: Application): AndroidViewModel(applicat
             repository.addFood(foodEntity)
         }
     }
-    /*
-    var arrayListMutableLiveData = MutableLiveData<ArrayList<FoodDrink>>()
-
-    var arrayList = ArrayList<FoodDrink>()
-
-    fun getArrayList(): MutableLiveData<ArrayList<FoodDrink>>{
-
-        arrayList.addAll(FoodsData.listData)
-
-        arrayListMutableLiveData.value = arrayList
-
-        return arrayListMutableLiveData
-    }*/
 }

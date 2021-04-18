@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.ui.main.adapter.ListDrinkAdapter
 import com.lebahakatsuki.menuapp.ui.main.adapter.ListFoodAdapter
@@ -78,6 +79,10 @@ class MainActivity : AppCompatActivity() {
             recyclerviewDrink.adapter = listDrinkAdapter
         })
 
+        val floatingActionBtn = findViewById(R.id.floatingActionBtn) as FloatingActionButton
+        floatingActionBtn.setOnClickListener {
+            it.context.startActivity(Intent(it.context, AddMenuActivity::class.java))
+        }
 
 //        listFood.addAll(FoodsData.listData)
 //        showRecyclerFood()
