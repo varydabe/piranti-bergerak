@@ -9,16 +9,13 @@ import android.widget.EditText
 import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.data.model.DrinkEntity
 import com.lebahakatsuki.menuapp.data.model.FoodEntity
-import com.lebahakatsuki.menuapp.ui.main.viewmodel.AddMenuActivityViemModel
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.DrinkFragmentViewModel
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.FoodFragmentViewModel
 
 class AddMenuActivity : AppCompatActivity() {
-    private lateinit var addMenuActivityViemModel: AddMenuActivityViemModel
     private lateinit var foodFragmentViewModel: FoodFragmentViewModel
     private lateinit var drinkFragmentViewModel: DrinkFragmentViewModel
     private var category: String = ""
@@ -27,7 +24,6 @@ class AddMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_menu)
 
-        addMenuActivityViemModel = ViewModelProvider(this).get(AddMenuActivityViemModel::class.java)
         foodFragmentViewModel = ViewModelProvider(this).get(FoodFragmentViewModel::class.java)
         drinkFragmentViewModel = ViewModelProvider(this).get(DrinkFragmentViewModel::class.java)
         val menuEditText = findViewById<EditText>(R.id.menuEditText)
