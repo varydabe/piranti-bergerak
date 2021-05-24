@@ -10,14 +10,17 @@ import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.lebahakatsuki.menuapp.R
+import com.lebahakatsuki.menuapp.data.model.AddMenuRequestModel
 import com.lebahakatsuki.menuapp.data.model.DrinkEntity
 import com.lebahakatsuki.menuapp.data.model.FoodEntity
+import com.lebahakatsuki.menuapp.ui.main.viewmodel.AddMenuViewModel
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.DrinkFragmentViewModel
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.FoodFragmentViewModel
 
 class AddMenuActivity : AppCompatActivity() {
     private lateinit var foodFragmentViewModel: FoodFragmentViewModel
     private lateinit var drinkFragmentViewModel: DrinkFragmentViewModel
+    private lateinit var addMenuViewModel: AddMenuViewModel
     private var category: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +29,7 @@ class AddMenuActivity : AppCompatActivity() {
 
         foodFragmentViewModel = ViewModelProvider(this).get(FoodFragmentViewModel::class.java)
         drinkFragmentViewModel = ViewModelProvider(this).get(DrinkFragmentViewModel::class.java)
+        addMenuViewModel = ViewModelProvider(this).get(AddMenuViewModel::class.java)
         val menuEditText = findViewById<EditText>(R.id.menuEditText)
         val priceEditText = findViewById<EditText>(R.id.priceEditText)
         val categoryRadioGroup = findViewById<RadioGroup>(R.id.categoryRadioGroup)
@@ -37,6 +41,8 @@ class AddMenuActivity : AppCompatActivity() {
                 Toast.makeText(it.context, "Harus memilih salah satu", Toast.LENGTH_SHORT).show()
             } else {
                 findRadioButton(checkedId)
+                val addMenuRequestModel = AddMenuRequestModel(menuEditText.text.toString(), priceEditText.text.toString().toInt(), category)
+                addMenuViewModel.addMenu(addMenuRequestModel)
                 insertDataToDatabase(menuEditText.text.toString(), category,priceEditText.text.toString())
             }
         }

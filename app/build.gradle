@@ -1,13 +1,12 @@
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-}
-
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
+    flavorDimensions "default"
     compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.lebahakatsuki.menuapp"
@@ -15,22 +14,34 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
 
-    buildFeatures {
-        viewBinding true
-    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    viewBinding{
+        enabled = true
+    }
+    productFlavors {
+        devel {
+            buildConfigField 'String', 'API_BASE_URL', '"https://mobile-menu-api.herokuapp.com/"'
+            buildConfigField 'String', 'ADD_MENU', '"menus/"'
+        }
+        prod {
+            buildConfigField 'String', 'API_BASE_URL', '"https://mobile-menu-api.herokuapp.com/"'
+            buildConfigField 'String', 'ADD_MENU', '"menus/"'
+        }
+    }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -55,7 +66,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    def room_version = "2.3.0-alpha02"
+    def room_version = "2.2.3"
 
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
@@ -64,4 +75,19 @@ dependencies {
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.7.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
+
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+
+    implementation 'id.zelory:compressor:2.1.0'
+
+    def kodein_version = "6.2.1"
+
+    implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
+    implementation "org.kodein.di:kodein-di-framework-android-x:$kodein_version"
 }
