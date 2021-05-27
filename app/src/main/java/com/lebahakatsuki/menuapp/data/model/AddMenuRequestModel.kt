@@ -6,7 +6,7 @@ data class AddMenuRequestModel(
     @field:SerializedName("nama")
     val nama: String? = null,
     @field:SerializedName("harga")
-    val harga: Int? = null,
+    val harga: Int = 0,
     @field:SerializedName("kategori")
     val kategori: String? = null
 )

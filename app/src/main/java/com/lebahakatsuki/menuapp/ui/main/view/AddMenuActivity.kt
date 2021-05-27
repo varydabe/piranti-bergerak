@@ -8,7 +8,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioGroup
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.gson.JsonObject
 import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.data.model.AddMenuRequestModel
 import com.lebahakatsuki.menuapp.data.model.DrinkEntity
@@ -35,23 +37,49 @@ class AddMenuActivity : AppCompatActivity() {
         val categoryRadioGroup = findViewById<RadioGroup>(R.id.categoryRadioGroup)
 
         val addButton = findViewById<Button>(R.id.addButton)
+
+        addMenuObservable()
+
         addButton.setOnClickListener {
             var checkedId = categoryRadioGroup.checkedRadioButtonId
             if (checkedId == -1){
                 Toast.makeText(it.context, "Harus memilih salah satu", Toast.LENGTH_SHORT).show()
             } else {
                 findRadioButton(checkedId)
-                val addMenuRequestModel = AddMenuRequestModel(menuEditText.text.toString(), priceEditText.text.toString().toInt(), category)
-                addMenuViewModel.addMenu(addMenuRequestModel)
-                insertDataToDatabase(menuEditText.text.toString(), category,priceEditText.text.toString())
+                val nama = menuEditText.text.toString()
+                val harga = priceEditText.text.toString().trim().toInt()
+                if (nama.isNullOrEmpty()) {
+                    menuEditText.error = "Nama menu harus diisi"
+                } else if (harga.toString().isNullOrEmpty()) {
+                    priceEditText.error = "Harga harus diisi"
+                } else {
+                    val addMenuRequestModel = AddMenuRequestModel(nama, harga, category)
+                    val jsonObject = JsonObject()
+                    jsonObject.addProperty("nama", nama)
+                    jsonObject.addProperty("harga", harga)
+                    jsonObject.addProperty("kategori", category)
+                    addMenuViewModel.addMenu(addMenuRequestModel)
+                    //insertDataToDatabase(menuEditText.text.toString(), category,priceEditText.text.toString())
+                }
             }
         }
     }
 
+    private fun addMenuObservable() {
+        addMenuViewModel.getAddMenu().observe(this, Observer {
+            if (it == null) {
+                Toast.makeText(this@AddMenuActivity, "Gagal menambah menu", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this@AddMenuActivity, "Berhasil menambah menu", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+        })
+    }
+
     private fun findRadioButton(checkedId: Int) {
         when(checkedId){
-            R.id.foodRadioButton -> category = "Food"
-            R.id.drinkRadioButton -> category = "Drink"
+            R.id.foodRadioButton -> category = "food"
+            R.id.drinkRadioButton -> category = "drink"
             else -> Toast.makeText(applicationContext, "Harus memilih salah satu", Toast.LENGTH_SHORT).show()
         }
     }
