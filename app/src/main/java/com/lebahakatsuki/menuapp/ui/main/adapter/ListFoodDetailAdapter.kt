@@ -12,10 +12,12 @@ import com.lebahakatsuki.menuapp.ui.main.view.DrinkActivity
 import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.data.model.FoodDrink
 import com.lebahakatsuki.menuapp.data.model.FoodEntity
+import com.lebahakatsuki.menuapp.data.model.Menu
 import com.lebahakatsuki.menuapp.ui.main.view.FoodFragment
 
 class ListFoodDetailAdapter: RecyclerView.Adapter<ListFoodDetailAdapter.ListViewHolder>() {
-    private var listFood = emptyList<FoodEntity>()
+    private var listFood = emptyList<Menu>()
+    //private var listFood = emptyList<FoodEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.list_food_detail, parent, false)
@@ -27,8 +29,10 @@ class ListFoodDetailAdapter: RecyclerView.Adapter<ListFoodDetailAdapter.ListView
 
         //Glide.with(holder.itemView.context).load(foodDrink.photo).apply(RequestOptions().override(350,550)).into(holder.ivPhoto)
 
-        holder.tvFood.text = foodDrink.foodName
-        holder.tvPrice.text = foodDrink.price
+        holder.tvFood.text = foodDrink.nama
+        holder.tvPrice.text = foodDrink.harga.toString()
+        //holder.tvFood.text = foodDrink.foodName
+        //holder.tvPrice.text = foodDrink.price
     }
 
     override fun getItemCount(): Int {
@@ -41,8 +45,13 @@ class ListFoodDetailAdapter: RecyclerView.Adapter<ListFoodDetailAdapter.ListView
         var tvPrice: TextView = itemView.findViewById(R.id.tvPrice)
     }
 
-    fun setData(listFood: List<FoodEntity>){
+    fun setData(listFood: List<Menu>){
         this.listFood = listFood
         notifyDataSetChanged()
     }
+
+    /*fun setData(listFood: List<FoodEntity>){
+        this.listFood = listFood
+        notifyDataSetChanged()
+    }*/
 }

@@ -13,13 +13,14 @@ import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.ui.main.adapter.ListDrinkDetailAdapter
 import com.lebahakatsuki.menuapp.data.resource.DrinksData
 import com.lebahakatsuki.menuapp.data.model.FoodDrink
+import com.lebahakatsuki.menuapp.data.model.Menu
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.DrinkFragmentViewModel
 
 
 class DrinkFragment : Fragment() {
     lateinit var recyclerviewDrinkDetail: RecyclerView
     lateinit var drinkFragmentViewModel: DrinkFragmentViewModel
-    private var listDrink: ArrayList<FoodDrink> = arrayListOf()
+    //private var listDrink: ArrayList<FoodDrink> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +38,12 @@ class DrinkFragment : Fragment() {
         recyclerviewDrinkDetail.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 
         drinkFragmentViewModel = ViewModelProviders.of(this).get(DrinkFragmentViewModel::class.java)
-        drinkFragmentViewModel.getAllDrink.observe(viewLifecycleOwner, Observer {
+        /*drinkFragmentViewModel.getAllDrink.observe(viewLifecycleOwner, Observer {
             adapter.setData(it)
+        })*/
+        drinkFragmentViewModel.getDrink().observe(viewLifecycleOwner, Observer {
+            val listDrink: List<Menu>? = it.values
+            adapter.setData(listDrink!!)
         })
 
         /*

@@ -2,9 +2,10 @@ package com.lebahakatsuki.menuapp.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class AddMenuResponseModel(
+data class GetMenuResponseModel(
     @field:SerializedName("values")
-    val values: Menu? = null,
+    val values: List<Menu>? = null,
+
     @field:SerializedName("message")
     val message: String? = null
 )

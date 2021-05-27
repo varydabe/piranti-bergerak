@@ -13,10 +13,12 @@ import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.data.`interface`.FoodDrinkListener
 import com.lebahakatsuki.menuapp.data.model.DrinkEntity
 import com.lebahakatsuki.menuapp.data.model.FoodDrink
+import com.lebahakatsuki.menuapp.data.model.Menu
 import kotlinx.coroutines.selects.select
 
 class ListDrinkDetailAdapter: RecyclerView.Adapter<ListDrinkDetailAdapter.ListViewHolder>() {
-    private var listDrink = emptyList<DrinkEntity>()
+    private var listDrink = emptyList<Menu>()
+    //private var listDrink = emptyList<DrinkEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.list_drink_detail, parent, false)
@@ -28,8 +30,10 @@ class ListDrinkDetailAdapter: RecyclerView.Adapter<ListDrinkDetailAdapter.ListVi
 
         //Glide.with(holder.itemView.context).load(foodDrink.photo).apply(RequestOptions().override(350,550)).into(holder.ivPhoto)
 
-        holder.tvDrink.text = foodDrink.drinkName
-        holder.tvPrice.text = foodDrink.price
+        holder.tvDrink.text = foodDrink.nama
+        holder.tvPrice.text = foodDrink.harga.toString()
+        //holder.tvDrink.text = foodDrink.drinkName
+        //holder.tvPrice.text = foodDrink.price
     }
 
     override fun getItemCount(): Int {
@@ -42,8 +46,13 @@ class ListDrinkDetailAdapter: RecyclerView.Adapter<ListDrinkDetailAdapter.ListVi
         var tvPrice: TextView = itemView.findViewById(R.id.tvPrice)
     }
 
-    fun setData(listDrink: List<DrinkEntity>){
+    fun setData(listDrink: List<Menu>){
         this.listDrink = listDrink
         notifyDataSetChanged()
     }
+
+    /*fun setData(listDrink: List<DrinkEntity>){
+        this.listDrink = listDrink
+        notifyDataSetChanged()
+    }*/
 }
