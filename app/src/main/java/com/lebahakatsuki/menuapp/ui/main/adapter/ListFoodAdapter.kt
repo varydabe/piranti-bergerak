@@ -10,8 +10,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.data.model.FoodDrink
+import com.lebahakatsuki.menuapp.data.model.Menu
 
-class ListFoodAdapter(private val listFood: ArrayList<FoodDrink>) : RecyclerView.Adapter<ListFoodAdapter.ListViewHolder>() {
+class ListFoodAdapter() : RecyclerView.Adapter<ListFoodAdapter.ListViewHolder>() {
+    private var listFood = emptyList<Menu>()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.list_food, parent, false)
         return ListViewHolder(view)
@@ -20,10 +23,12 @@ class ListFoodAdapter(private val listFood: ArrayList<FoodDrink>) : RecyclerView
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val foodDrink = listFood[position]
 
-        Glide.with(holder.itemView.context).load(foodDrink.photo).apply(RequestOptions().override(350,550)).into(holder.ivPhoto)
+        //Glide.with(holder.itemView.context).load(foodDrink.photo).apply(RequestOptions().override(350,550)).into(holder.ivPhoto)
 
-        holder.tvFood.text = foodDrink.name
-        holder.tvPrice.text = foodDrink.price
+        holder.tvFood.text = foodDrink.nama
+        holder.tvPrice.text = foodDrink.harga.toString()
+        //holder.tvFood.text = foodDrink.name
+        //holder.tvPrice.text = foodDrink.price
     }
 
     override fun getItemCount(): Int {
@@ -34,5 +39,10 @@ class ListFoodAdapter(private val listFood: ArrayList<FoodDrink>) : RecyclerView
         var ivPhoto: ImageView = itemView.findViewById(R.id.ivFood)
         var tvFood: TextView = itemView.findViewById(R.id.tvFood)
         var tvPrice: TextView = itemView.findViewById(R.id.tvPrice)
+    }
+
+    fun setData(listFood: List<Menu>){
+        this.listFood = listFood
+        notifyDataSetChanged()
     }
 }

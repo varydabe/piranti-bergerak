@@ -3,16 +3,16 @@ package com.lebahakatsuki.menuapp.ui.main.viewmodel
 import android.app.Application
 import androidx.lifecycle.*
 import com.lebahakatsuki.menuapp.data.database.FoodDatabase
-import com.lebahakatsuki.menuapp.data.model.FoodDrink
 import com.lebahakatsuki.menuapp.data.model.FoodEntity
+import com.lebahakatsuki.menuapp.data.model.GetMenuResponseModel
 import com.lebahakatsuki.menuapp.data.repository.FoodRepository
-import com.lebahakatsuki.menuapp.data.resource.FoodsData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class FoodFragmentViewModel(application: Application): AndroidViewModel(application) {
     val getAllFood: LiveData<List<FoodEntity>>
     private val repository: FoodRepository
+    private var getMenuResponseModel: MutableLiveData<GetMenuResponseModel> = MutableLiveData()
 
     init {
         val foodDao = FoodDatabase.getDatabase(application).foodDao()
@@ -38,4 +38,10 @@ class FoodFragmentViewModel(application: Application): AndroidViewModel(applicat
 
         return arrayListMutableLiveData
     }*/
+
+    fun getFood(): LiveData<GetMenuResponseModel> {
+        FoodRepository.init()
+        getMenuResponseModel = FoodRepository.getFood()
+        return getMenuResponseModel
+    }
 }
