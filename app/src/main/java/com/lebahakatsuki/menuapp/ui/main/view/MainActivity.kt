@@ -1,27 +1,26 @@
 package com.lebahakatsuki.menuapp.ui.main.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.lebahakatsuki.menuapp.R
+import com.lebahakatsuki.menuapp.data.model.FoodDrink
 import com.lebahakatsuki.menuapp.ui.main.adapter.ListDrinkAdapter
 import com.lebahakatsuki.menuapp.ui.main.adapter.ListFoodAdapter
-import com.lebahakatsuki.menuapp.data.resource.DrinksData
-import com.lebahakatsuki.menuapp.data.resource.FoodsData
-import com.lebahakatsuki.menuapp.data.model.FoodDrink
-import com.lebahakatsuki.menuapp.ui.main.adapter.ListDrinkDetailAdapter
-import com.lebahakatsuki.menuapp.ui.main.adapter.ListFoodDetailAdapter
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.DrinkFragmentViewModel
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.FoodFragmentViewModel
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.MenuActivityViewModel
+import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerviewFood: RecyclerView
@@ -61,6 +60,11 @@ class MainActivity : AppCompatActivity() {
             it.context.startActivity(intent)
         }
 
+        val myFabSrc = resources.getDrawable(R.drawable.ic_add)
+        val willBeWhite = myFabSrc.constantState!!.newDrawable()
+        willBeWhite.mutate().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY)
+        floatingActionBtn.setImageDrawable(willBeWhite)
+
         menuActivityViewModel = ViewModelProviders.of(this).get(MenuActivityViewModel::class.java)
         foodFragmentViewModel = ViewModelProviders.of(this).get(FoodFragmentViewModel::class.java)
         drinkFragmentViewModel = ViewModelProviders.of(this).get(DrinkFragmentViewModel::class.java)
@@ -78,7 +82,11 @@ class MainActivity : AppCompatActivity() {
             val listFood = it.values
             val listFoodAdapter = ListFoodAdapter()
             listFoodAdapter.setData(listFood!!)
-            recyclerviewFood.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+            recyclerviewFood.layoutManager = LinearLayoutManager(
+                this,
+                LinearLayoutManager.HORIZONTAL,
+                false
+            )
             recyclerviewFood.adapter = listFoodAdapter
         })
 
@@ -95,7 +103,11 @@ class MainActivity : AppCompatActivity() {
             val listDrink = it.values
             val listDrinkAdapter = ListDrinkAdapter()
             listDrinkAdapter.setData(listDrink!!)
-            recyclerviewDrink.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+            recyclerviewDrink.layoutManager = LinearLayoutManager(
+                this,
+                LinearLayoutManager.HORIZONTAL,
+                false
+            )
             recyclerviewDrink.adapter = listDrinkAdapter
         })
 
