@@ -1,21 +1,19 @@
 package com.lebahakatsuki.menuapp.ui.main.viewmodel
 
 import android.app.Application
-import androidx.lifecycle.*
-import com.lebahakatsuki.menuapp.data.database.DrinkDatabase
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.lebahakatsuki.menuapp.data.database.DrinkDatabase
 import com.lebahakatsuki.menuapp.data.model.DrinkEntity
-import com.lebahakatsuki.menuapp.data.model.FoodDrink
 import com.lebahakatsuki.menuapp.data.model.GetMenuResponseModel
 import com.lebahakatsuki.menuapp.data.repository.DrinkRepository
-import com.lebahakatsuki.menuapp.data.repository.FoodRepository
-import com.lebahakatsuki.menuapp.data.resource.DrinksData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class DrinkFragmentViewModel(application: Application): AndroidViewModel(application) {
-    val getAllDrink: LiveData<List<DrinkEntity>>
+    private val getAllDrink: LiveData<List<DrinkEntity>>
     private val repository: DrinkRepository
     private var getMenuResponseModel: MutableLiveData<GetMenuResponseModel> = MutableLiveData()
 

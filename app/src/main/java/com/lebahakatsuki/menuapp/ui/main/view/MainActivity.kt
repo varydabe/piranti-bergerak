@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerviewFood: RecyclerView
     private lateinit var recyclerviewDrink: RecyclerView
-    lateinit var menuActivityViewModel: MenuActivityViewModel
+    private lateinit var menuActivityViewModel: MenuActivityViewModel
     private lateinit var foodFragmentViewModel: FoodFragmentViewModel
     private lateinit var drinkFragmentViewModel: DrinkFragmentViewModel
     private var listFood: ArrayList<FoodDrink> = arrayListOf()
@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         foodFragmentViewModel = ViewModelProviders.of(this).get(FoodFragmentViewModel::class.java)
         drinkFragmentViewModel = ViewModelProviders.of(this).get(DrinkFragmentViewModel::class.java)
 
-        recyclerviewFood = findViewById(R.id.recyclerviewFood) as RecyclerView
+        recyclerviewFood = findViewById(R.id.recyclerviewFood)
         recyclerviewFood.setHasFixedSize(true)
 
         /*menuActivityViewModel.getFoodArrayList().observe(this, Observer {
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
             recyclerviewFood.adapter = listFoodAdapter
         })
 
-        recyclerviewDrink = findViewById(R.id.recyclerviewDrink) as RecyclerView
+        recyclerviewDrink = findViewById(R.id.recyclerviewDrink)
         recyclerviewDrink.setHasFixedSize(true)
 
         /*menuActivityViewModel.getDrinkArrayList().observe(this, Observer {
@@ -111,7 +111,7 @@ class MainActivity : AppCompatActivity() {
             recyclerviewDrink.adapter = listDrinkAdapter
         })
 
-        val floatingActionBtn = findViewById(R.id.floatingActionBtn) as FloatingActionButton
+        val floatingActionBtn = findViewById<FloatingActionButton>(R.id.floatingActionBtn)
         floatingActionBtn.setOnClickListener {
             it.context.startActivity(Intent(it.context, AddMenuActivity::class.java))
         }
@@ -133,20 +133,6 @@ class MainActivity : AppCompatActivity() {
         val listDrinkAdapter = ListDrinkAdapter(listDrink)
         recyclerviewDrink.adapter = listDrinkAdapter
     }*/
-
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        //Toast.makeText(applicationContext, "Selamat Datang", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onPause() {
-        super.onPause()
-
-    }
 
     private fun navigateToFood() {
         val intent = Intent(this, FoodActivity::class.java)
