@@ -10,7 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class FoodFragmentViewModel(application: Application): AndroidViewModel(application) {
-    val getAllFood: LiveData<List<FoodEntity>>
+    private val getAllFood: LiveData<List<FoodEntity>>
     private val repository: FoodRepository
     private var getMenuResponseModel: MutableLiveData<GetMenuResponseModel> = MutableLiveData()
 
