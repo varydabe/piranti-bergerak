@@ -14,6 +14,8 @@ import com.lebahakatsuki.menuapp.data.model.FoodDrink
 import com.lebahakatsuki.menuapp.data.model.FoodEntity
 import com.lebahakatsuki.menuapp.data.model.Menu
 import com.lebahakatsuki.menuapp.ui.main.view.FoodFragment
+import java.text.NumberFormat
+import java.util.*
 
 class ListFoodDetailAdapter: RecyclerView.Adapter<ListFoodDetailAdapter.ListViewHolder>() {
     private var listFood = emptyList<Menu>()
@@ -29,8 +31,12 @@ class ListFoodDetailAdapter: RecyclerView.Adapter<ListFoodDetailAdapter.ListView
 
         //Glide.with(holder.itemView.context).load(foodDrink.photo).apply(RequestOptions().override(350,550)).into(holder.ivPhoto)
 
+        val localeID = Locale("in", "ID")
+        val formatRupiah = NumberFormat.getCurrencyInstance(localeID)
+        val price = formatRupiah.format(foodDrink.harga).replace("Rp", "Rp ")
+
         holder.tvFood.text = foodDrink.nama
-        holder.tvPrice.text = foodDrink.harga.toString()
+        holder.tvPrice.text = price
         //holder.tvFood.text = foodDrink.foodName
         //holder.tvPrice.text = foodDrink.price
     }

@@ -6,16 +6,19 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.lebahakatsuki.menuapp.R
-import com.lebahakatsuki.menuapp.data.model.FoodDrink
 import com.lebahakatsuki.menuapp.data.model.Menu
+import java.text.NumberFormat
+import java.util.*
 
 class ListDrinkAdapter() : RecyclerView.Adapter<ListDrinkAdapter.ListViewHolder>() {
     private var listDrink = emptyList<Menu>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.list_drink, parent, false)
+        val view: View = LayoutInflater.from(parent.context).inflate(
+            R.layout.list_drink,
+            parent,
+            false
+        )
         return ListViewHolder(view)
     }
 
@@ -24,8 +27,12 @@ class ListDrinkAdapter() : RecyclerView.Adapter<ListDrinkAdapter.ListViewHolder>
 
         //Glide.with(holder.itemView.context).load(foodDrink.photo).apply(RequestOptions().override(350,550)).into(holder.ivPhoto)
 
+        val localeID = Locale("in", "ID")
+        val formatRupiah = NumberFormat.getCurrencyInstance(localeID)
+        val price = formatRupiah.format(foodDrink.harga).replace("Rp", "Rp ")
+
         holder.tvDrink.text = foodDrink.nama
-        holder.tvPrice.text = foodDrink.harga.toString()
+        holder.tvPrice.text = price
         //holder.tvDrink.text = foodDrink.name
         //holder.tvPrice.text = foodDrink.price
     }

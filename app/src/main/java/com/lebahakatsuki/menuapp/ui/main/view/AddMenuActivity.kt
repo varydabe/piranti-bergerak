@@ -38,8 +38,6 @@ class AddMenuActivity : AppCompatActivity() {
 
         val addButton = findViewById<Button>(R.id.addButton)
 
-        addMenuObservable()
-
         addButton.setOnClickListener {
             var checkedId = categoryRadioGroup.checkedRadioButtonId
             if (checkedId == -1){
@@ -59,21 +57,11 @@ class AddMenuActivity : AppCompatActivity() {
                     jsonObject.addProperty("harga", harga)
                     jsonObject.addProperty("kategori", category)
                     addMenuViewModel.addMenu(addMenuRequestModel)
+                    finish()
                     //insertDataToDatabase(menuEditText.text.toString(), category,priceEditText.text.toString())
                 }
             }
         }
-    }
-
-    private fun addMenuObservable() {
-        addMenuViewModel.getAddMenu().observe(this, Observer {
-            if (it == null) {
-                Toast.makeText(this@AddMenuActivity, "Gagal menambah menu", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this@AddMenuActivity, "Berhasil menambah menu", Toast.LENGTH_SHORT).show()
-                finish()
-            }
-        })
     }
 
     private fun findRadioButton(checkedId: Int) {
