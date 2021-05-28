@@ -11,6 +11,8 @@ import com.bumptech.glide.request.RequestOptions
 import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.data.model.FoodDrink
 import com.lebahakatsuki.menuapp.data.model.Menu
+import java.text.NumberFormat
+import java.util.*
 
 class ListFoodAdapter() : RecyclerView.Adapter<ListFoodAdapter.ListViewHolder>() {
     private var listFood = emptyList<Menu>()
@@ -25,8 +27,12 @@ class ListFoodAdapter() : RecyclerView.Adapter<ListFoodAdapter.ListViewHolder>()
 
         //Glide.with(holder.itemView.context).load(foodDrink.photo).apply(RequestOptions().override(350,550)).into(holder.ivPhoto)
 
+        val localeID = Locale("in", "ID")
+        val formatRupiah = NumberFormat.getCurrencyInstance(localeID)
+        val price = formatRupiah.format(foodDrink.harga).replace("Rp", "Rp ")
+
         holder.tvFood.text = foodDrink.nama
-        holder.tvPrice.text = foodDrink.harga.toString()
+        holder.tvPrice.text = price
         //holder.tvFood.text = foodDrink.name
         //holder.tvPrice.text = foodDrink.price
     }

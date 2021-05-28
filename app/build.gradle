@@ -32,13 +32,13 @@ android {
     productFlavors {
         devel {
             buildConfigField 'String', 'API_BASE_URL', '"https://mobile-menu-api.herokuapp.com/"'
-            buildConfigField 'String', 'ADD_MENU', '"menus/"'
+            buildConfigField 'String', 'ADD_MENU', '"menus"'
             buildConfigField 'String', 'GET_FOOD', '"menus/food"'
             buildConfigField 'String', 'GET_DRINK', '"menus/drink"'
         }
         prod {
             buildConfigField 'String', 'API_BASE_URL', '"https://mobile-menu-api.herokuapp.com/"'
-            buildConfigField 'String', 'ADD_MENU', '"menus/"'
+            buildConfigField 'String', 'ADD_MENU', '"menus"'
             buildConfigField 'String', 'GET_FOOD', '"menus/food"'
             buildConfigField 'String', 'GET_DRINK', '"menus/drink"'
         }
