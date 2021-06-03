@@ -39,8 +39,8 @@ class FoodFragment : Fragment() {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_food, container, false)
 
-        recyclerviewFoodDetail = v.findViewById(R.id.recyclerviewFoodDetail) as RecyclerView
         adapter = ListFoodDetailAdapter()
+        recyclerviewFoodDetail = v.findViewById(R.id.recyclerviewFoodDetail)
         recyclerviewFoodDetail.adapter = adapter
         recyclerviewFoodDetail.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 

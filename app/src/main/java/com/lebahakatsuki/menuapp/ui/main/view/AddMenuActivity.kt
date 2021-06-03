@@ -26,6 +26,7 @@ import com.lebahakatsuki.menuapp.data.model.FoodEntity
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.AddMenuViewModel
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.DrinkFragmentViewModel
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.FoodFragmentViewModel
+import kotlinx.android.synthetic.main.activity_add_menu.*
 
 class AddMenuActivity : AppCompatActivity() {
     private lateinit var foodFragmentViewModel: FoodFragmentViewModel
@@ -46,11 +47,10 @@ class AddMenuActivity : AppCompatActivity() {
         foodFragmentViewModel = ViewModelProvider(this).get(FoodFragmentViewModel::class.java)
         drinkFragmentViewModel = ViewModelProvider(this).get(DrinkFragmentViewModel::class.java)
         addMenuViewModel = ViewModelProvider(this).get(AddMenuViewModel::class.java)
-        val menuEditText = findViewById<EditText>(R.id.menuEditText)
-        val priceEditText = findViewById<EditText>(R.id.priceEditText)
-        val categoryRadioGroup = findViewById<RadioGroup>(R.id.categoryRadioGroup)
 
-        val addButton = findViewById<Button>(R.id.addButton)
+        backButtonImageView.setOnClickListener {
+            onBackPressed()
+        }
 
         addButton.setOnClickListener {
             val checkedId = categoryRadioGroup.checkedRadioButtonId

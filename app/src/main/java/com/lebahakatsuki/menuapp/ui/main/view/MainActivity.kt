@@ -4,14 +4,10 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.data.model.FoodDrink
 import com.lebahakatsuki.menuapp.ui.main.adapter.ListDrinkAdapter
@@ -23,8 +19,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var recyclerviewFood: RecyclerView
-    private lateinit var recyclerviewDrink: RecyclerView
     private lateinit var menuActivityViewModel: MenuActivityViewModel
     private lateinit var foodFragmentViewModel: FoodFragmentViewModel
     private lateinit var drinkFragmentViewModel: DrinkFragmentViewModel
@@ -35,25 +29,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val ivFoodIcon = findViewById<ImageView>(R.id.ivFoodIcon)
         ivFoodIcon.setOnClickListener {
             val intent = Intent(it.context, ChooseMenuActivity::class.java)
             intent.putExtra("POSITION", 0)
             it.context.startActivity(intent)
         }
-        val ivDrinkIcon = findViewById<ImageView>(R.id.ivDrinkIcon)
         ivDrinkIcon.setOnClickListener {
             val intent = Intent(it.context, ChooseMenuActivity::class.java)
             intent.putExtra("POSITION", 1)
             it.context.startActivity(intent)
         }
-        val tvFoodMore = findViewById<TextView>(R.id.tvFoodMore)
         tvFoodMore.setOnClickListener {
             val intent = Intent(it.context, ChooseMenuActivity::class.java)
             intent.putExtra("POSITION", 0)
             it.context.startActivity(intent)
         }
-        val tvDrinkMore = findViewById<TextView>(R.id.tvDrinkMore)
         tvDrinkMore.setOnClickListener {
             val intent = Intent(it.context, ChooseMenuActivity::class.java)
             intent.putExtra("POSITION", 1)
@@ -68,8 +58,7 @@ class MainActivity : AppCompatActivity() {
         menuActivityViewModel = ViewModelProviders.of(this).get(MenuActivityViewModel::class.java)
         foodFragmentViewModel = ViewModelProviders.of(this).get(FoodFragmentViewModel::class.java)
         drinkFragmentViewModel = ViewModelProviders.of(this).get(DrinkFragmentViewModel::class.java)
-
-        recyclerviewFood = findViewById(R.id.recyclerviewFood)
+        
         recyclerviewFood.setHasFixedSize(true)
 
         /*menuActivityViewModel.getFoodArrayList().observe(this, Observer {
@@ -90,7 +79,6 @@ class MainActivity : AppCompatActivity() {
             recyclerviewFood.adapter = listFoodAdapter
         })
 
-        recyclerviewDrink = findViewById(R.id.recyclerviewDrink)
         recyclerviewDrink.setHasFixedSize(true)
 
         /*menuActivityViewModel.getDrinkArrayList().observe(this, Observer {
@@ -111,7 +99,6 @@ class MainActivity : AppCompatActivity() {
             recyclerviewDrink.adapter = listDrinkAdapter
         })
 
-        val floatingActionBtn = findViewById<FloatingActionButton>(R.id.floatingActionBtn)
         floatingActionBtn.setOnClickListener {
             it.context.startActivity(Intent(it.context, AddMenuActivity::class.java))
         }

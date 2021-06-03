@@ -28,8 +28,10 @@ class ChooseMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choose_menu)
 
-        val viewPager = findViewById<ViewPager>(R.id.viewPager)
-        val tabs = findViewById<TabLayout>(R.id.tabs)
+        backButtonImageView.setOnClickListener {
+            onBackPressed()
+        }
+
         viewPager.adapter = ViewPagerAdapter(supportFragmentManager)
         viewPager.currentItem = intent.getIntExtra("POSITION", 0)
         tabs.setupWithViewPager(viewPager)
@@ -51,9 +53,6 @@ class ChooseMenuActivity : AppCompatActivity() {
             val price = formatRupiah.format(totalprice).replace("Rp", "Rp ")
             totalPriceTextView.text = price
         })
-
-        val btnOrder = findViewById<Button>(R.id.btnOrder)
-        val btnCancel = findViewById<Button>(R.id.btnCancel)
 
         btnCancel.setOnClickListener {
             val intent = Intent(it.context, MainActivity::class.java)
