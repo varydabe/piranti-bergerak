@@ -73,18 +73,17 @@ class ChooseMenuActivity : AppCompatActivity() {
             totalPriceTextView.text = price
         })
 
-        btnCancel.setOnClickListener {
-            val intent = Intent(it.context, MainActivity::class.java)
-            it.context.startActivity(intent)
-        }
-
 
         btnOrder.setOnClickListener {
-            val timestamp = System.currentTimeMillis()
-            val orderEntity = OrderEntity(0, timestamp, foodName, foodPrice, drinkName, drinkPrice, totalprice)
-            orderViewModel.addOrder(orderEntity)
-            sendNotification(foodName, drinkName)
-            finish()
+            if (foodName == "" && drinkName == "") {
+                Toast.makeText(applicationContext, "Menu harus dipilih", Toast.LENGTH_SHORT).show()
+            } else {
+                val timestamp = System.currentTimeMillis()
+                val orderEntity = OrderEntity(0, timestamp, foodName, foodPrice, drinkName, drinkPrice, totalprice)
+                orderViewModel.addOrder(orderEntity)
+                sendNotification(foodName, drinkName)
+                finish()
+            }
         }
     }
 
@@ -110,15 +109,5 @@ class ChooseMenuActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Toast.makeText(applicationContext, "Pilih menu kesukaanmu", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Toast.makeText(applicationContext, "Order diproses", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Toast.makeText(applicationContext, "Sistem berhenti sementara", Toast.LENGTH_SHORT).show()
     }
 }

@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class OrderViewModel(application: Application): AndroidViewModel(application) {
-    private val getAllOrder: LiveData<List<OrderEntity>>
+    val getAllOrder: LiveData<List<OrderEntity>>
     private val repository: OrderRepository
 
     init {
