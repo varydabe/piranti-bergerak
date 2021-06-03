@@ -1,4 +1,4 @@
-package com.lebahakatsuki.menuapp.ui.main.view
+package com.lebahakatsuki.menuapp.ui.main.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

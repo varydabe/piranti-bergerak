@@ -1,10 +1,11 @@
-package com.lebahakatsuki.menuapp.ui.main.view
+package com.lebahakatsuki.menuapp.ui.main.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,7 @@ import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.data.model.Menu
 import com.lebahakatsuki.menuapp.ui.main.adapter.ListFoodDetailAdapter
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.FoodFragmentViewModel
+import com.lebahakatsuki.menuapp.ui.main.viewmodel.FoodViewodel
 
 /**
  * A simple [Fragment] subclass.
@@ -22,6 +24,8 @@ import com.lebahakatsuki.menuapp.ui.main.viewmodel.FoodFragmentViewModel
 class FoodFragment : Fragment() {
     lateinit var recyclerviewFoodDetail: RecyclerView
     lateinit var foodFragmentViewModel: FoodFragmentViewModel
+    lateinit var adapter: ListFoodDetailAdapter
+    private val foodViewodel: FoodViewodel by activityViewModels()
     //private var listFood: ArrayList<FoodDrink> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,8 +39,8 @@ class FoodFragment : Fragment() {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_food, container, false)
 
-        recyclerviewFoodDetail = v.findViewById(R.id.recyclerviewFoodDetail) as RecyclerView
-        val adapter = ListFoodDetailAdapter()
+        adapter = ListFoodDetailAdapter()
+        recyclerviewFoodDetail = v.findViewById(R.id.recyclerviewFoodDetail)
         recyclerviewFoodDetail.adapter = adapter
         recyclerviewFoodDetail.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 
@@ -49,6 +53,13 @@ class FoodFragment : Fragment() {
             adapter.setData(listFood!!)
         })
 
+        adapter.onItemClick = { menu, position ->
+            onRecyclerViewClick(menu, position)
+            if (menu != null) {
+                onItemClick(menu)
+            }
+        }
+
         /*
         recyclerviewFoodDetail.setHasFixedSize(true)
 
@@ -56,6 +67,16 @@ class FoodFragment : Fragment() {
         showRecyclerFood()*/
 
         return v
+    }
+
+    private fun onRecyclerViewClick(menu: Menu?, position: Int) {
+        var data = menu
+        data?.flagSelected = 1
+        adapter.setSelectedPos(position)
+    }
+
+    fun onItemClick(menu: Menu) {
+        foodViewodel.selectFood(menu)
     }
 
     /*private fun showRecyclerFood(){

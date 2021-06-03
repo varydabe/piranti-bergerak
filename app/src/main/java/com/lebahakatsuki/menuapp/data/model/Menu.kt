@@ -8,5 +8,6 @@ data class Menu(
     @field:SerializedName("nama")
     val nama: String? = null,
     @field:SerializedName("harga")
-    val harga: Int? = null
+    val harga: Int? = null,
+    var flagSelected: Int? = 0
 )

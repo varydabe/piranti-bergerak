@@ -7,7 +7,7 @@
 
     <activity
         android:id="@+id/MainActivity"
-        android:name="com.lebahakatsuki.menuapp.ui.main.view.MainActivity"
+        android:name="com.lebahakatsuki.menuapp.ui.main.view.activity.MainActivity"
         android:label="@string/main_activity_label"
         tools:layout="@layout/activity_main">
 
@@ -22,7 +22,7 @@
 
     <activity
         android:id="@+id/FoodActivity"
-        android:name="com.lebahakatsuki.menuapp.ui.main.view.FoodActivity"
+        android:name="com.lebahakatsuki.menuapp.ui.main.view.activity.FoodActivity"
         android:label="@string/food_activity_label"
         tools:layout="@layout/activity_food">
 
@@ -33,7 +33,7 @@
 
     <activity
         android:id="@+id/DrinkActivity"
-        android:name="com.lebahakatsuki.menuapp.ui.main.view.DrinkActivity"
+        android:name="com.lebahakatsuki.menuapp.ui.main.view.activity.DrinkActivity"
         android:label="@string/drink_activity_label"
         tools:layout="@layout/activity_drink">
 

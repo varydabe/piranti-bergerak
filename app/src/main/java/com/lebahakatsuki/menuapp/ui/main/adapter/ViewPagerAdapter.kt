@@ -3,8 +3,8 @@ package com.lebahakatsuki.menuapp.ui.main.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.lebahakatsuki.menuapp.ui.main.view.DrinkFragment
-import com.lebahakatsuki.menuapp.ui.main.view.FoodFragment
+import com.lebahakatsuki.menuapp.ui.main.view.fragment.DrinkFragment
+import com.lebahakatsuki.menuapp.ui.main.view.fragment.FoodFragment
 
 class ViewPagerAdapter(fm: FragmentManager): FragmentPagerAdapter(fm) {
     private val pages = listOf(
