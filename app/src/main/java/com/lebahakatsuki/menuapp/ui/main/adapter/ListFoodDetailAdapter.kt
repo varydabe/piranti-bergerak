@@ -7,14 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.lebahakatsuki.menuapp.ui.main.view.DrinkActivity
 import com.lebahakatsuki.menuapp.R
-import com.lebahakatsuki.menuapp.data.model.FoodDrink
-import com.lebahakatsuki.menuapp.data.model.FoodEntity
 import com.lebahakatsuki.menuapp.data.model.Menu
-import com.lebahakatsuki.menuapp.ui.main.view.FoodFragment
 import kotlinx.android.synthetic.main.list_food_detail.view.*
 import java.text.NumberFormat
 import java.util.*

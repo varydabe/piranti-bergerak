@@ -11,11 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MenuApp">
-        <activity android:name=".ui.main.view.AddMenuActivity"></activity>
-        <activity android:name=".ui.main.view.ChooseMenuActivity" />
-        <activity android:name=".ui.main.view.FoodActivity" />
-        <activity android:name=".ui.main.view.DrinkActivity" />
-        <activity android:name=".ui.main.view.MainActivity">
+        <activity android:name=".ui.main.view.activity.HistoryActivity"></activity>
+        <activity android:name=".ui.main.view.activity.AddMenuActivity" />
+        <activity android:name=".ui.main.view.activity.ChooseMenuActivity" />
+        <activity android:name=".ui.main.view.activity.FoodActivity" />
+        <activity android:name=".ui.main.view.activity.DrinkActivity" />
+        <activity android:name=".ui.main.view.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

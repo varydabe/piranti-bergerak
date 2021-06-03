@@ -1,4 +1,4 @@
-package com.lebahakatsuki.menuapp.ui.main.view
+package com.lebahakatsuki.menuapp.ui.main.view.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,8 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.ui.main.adapter.ListDrinkDetailAdapter
-import com.lebahakatsuki.menuapp.data.resource.DrinksData
-import com.lebahakatsuki.menuapp.data.model.FoodDrink
 import com.lebahakatsuki.menuapp.data.model.Menu
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.DrinkFragmentViewModel
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.DrinkViewModel

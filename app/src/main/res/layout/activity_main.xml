@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.view.MainActivity">
-    <LinearLayout
+    tools:context=".ui.main.view.activity.MainActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/topBarLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,8 +25,20 @@
             android:text="Menu App"
             android:textSize="20sp"
             android:textColor="@color/white"
-            android:textStyle="bold"/>
-    </LinearLayout>
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <ImageView
+            android:id="@+id/ivHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+            app:srcCompat="@drawable/ic_history"
+            app:tint="@color/white" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"

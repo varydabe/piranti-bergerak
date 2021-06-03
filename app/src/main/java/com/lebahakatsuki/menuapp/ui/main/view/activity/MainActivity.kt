@@ -1,4 +1,4 @@
-package com.lebahakatsuki.menuapp.ui.main.view
+package com.lebahakatsuki.menuapp.ui.main.view.activity
 
 import android.content.Intent
 import android.graphics.Color
@@ -29,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        ivHistory.setOnClickListener {
+            it.context.startActivity(Intent(it.context, HistoryActivity::class.java))
+        }
+
         ivFoodIcon.setOnClickListener {
             val intent = Intent(it.context, ChooseMenuActivity::class.java)
             intent.putExtra("POSITION", 0)
@@ -58,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         menuActivityViewModel = ViewModelProviders.of(this).get(MenuActivityViewModel::class.java)
         foodFragmentViewModel = ViewModelProviders.of(this).get(FoodFragmentViewModel::class.java)
         drinkFragmentViewModel = ViewModelProviders.of(this).get(DrinkFragmentViewModel::class.java)
-        
+
         recyclerviewFood.setHasFixedSize(true)
 
         /*menuActivityViewModel.getFoodArrayList().observe(this, Observer {

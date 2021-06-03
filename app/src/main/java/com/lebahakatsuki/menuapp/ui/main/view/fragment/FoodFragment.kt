@@ -1,4 +1,4 @@
-package com.lebahakatsuki.menuapp.ui.main.view
+package com.lebahakatsuki.menuapp.ui.main.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

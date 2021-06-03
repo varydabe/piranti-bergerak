@@ -1,24 +1,16 @@
-package com.lebahakatsuki.menuapp.ui.main.view
+package com.lebahakatsuki.menuapp.ui.main.view.activity
 
-import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.google.gson.JsonObject
 import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.data.model.AddMenuRequestModel
 import com.lebahakatsuki.menuapp.data.model.DrinkEntity
