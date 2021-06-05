@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    tools:context=".ui.main.view.fragment.DrinkFragment">
+    tools:context=".ui.main.view.fragment.DrinkFragment"
+    android:background="@color/colorSecondary">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -12,12 +13,12 @@
             android:layout_height="match_parent">
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerviewDrinkDetail"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingHorizontal="10dp"
-                android:layout_marginHorizontal="35dp"
-                tools:listitem="@layout/list_drink_detail"/>
+                tools:listitem="@layout/list_drink_detail"
+                android:paddingStart="65dp"
+                android:paddingEnd="65dp"/>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -124,16 +124,4 @@ class MainActivity : AppCompatActivity() {
         val listDrinkAdapter = ListDrinkAdapter(listDrink)
         recyclerviewDrink.adapter = listDrinkAdapter
     }*/
-
-    private fun navigateToFood() {
-        val intent = Intent(this, FoodActivity::class.java)
-
-        startActivity(intent)
-    }
-
-    private fun navigateToDrink() {
-        val intent = Intent(this, DrinkActivity::class.java)
-
-        startActivity(intent)
-    }
 }

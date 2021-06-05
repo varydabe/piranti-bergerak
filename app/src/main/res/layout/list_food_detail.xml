@@ -3,16 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardviewFoodDetail"
-    android:layout_width="300dp"
-    android:layout_height="150dp"
+    android:layout_width="280dp"
+    android:layout_height="130dp"
     android:background="@drawable/custom_cardview"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_gravity="fill"
+    android:layout_gravity="center_horizontal"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp"
-    android:layout_marginHorizontal="2dp"
     android:layout_marginVertical="10dp"
-    >
+    android:padding="10dp"    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -41,7 +40,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="7dp"
                 android:src="@drawable/food"
                 tools:ignore="ContentDescription" />
             <LinearLayout
@@ -50,7 +49,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/ivFood"
-                android:paddingStart="20dp"
+                android:paddingStart="10dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -58,6 +57,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:paddingRight="14dp"
                     android:text="@string/food_name"
                     android:textSize="16sp"
                     android:textColor="@drawable/text_color_cardview"

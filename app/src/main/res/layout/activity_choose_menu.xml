@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.view.activity.ChooseMenuActivity">
+    tools:context=".ui.main.view.activity.ChooseMenuActivity"
+    android:background="@color/colorSecondary">
     <LinearLayout
         android:id="@+id/topBarLinearLayout"
         android:layout_width="match_parent"
@@ -69,6 +70,7 @@
         app:layout_constraintBottom_toTopOf="@id/priceLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constrainedHeight="true"
+        app:layout_constrainedWidth="false"
         app:layout_constraintEnd_toEndOf="parent"/>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/priceLayout"
@@ -78,7 +80,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp"
-        android:layout_marginHorizontal="16dp">
+        android:layout_marginHorizontal="0dp"
+        android:paddingHorizontal="25dp"
+        android:background="@color/black">
         <TextView
             android:id="@+id/totalPriceTextView"
             android:layout_width="wrap_content"
@@ -88,7 +92,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:text="Rp. 0,00"
             android:textSize="20sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
         <Button
             android:id="@+id/btnOrder"
             android:layout_width="150dp"

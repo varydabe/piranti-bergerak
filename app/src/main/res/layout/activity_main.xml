@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.view.activity.MainActivity">
+    tools:context=".ui.main.view.activity.MainActivity"
+    android:background="@color/colorSecondary">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/topBarLinearLayout"
         android:layout_width="match_parent"
@@ -94,7 +95,7 @@
             android:layout_toEndOf="@id/tvFoodTitle"
             android:textAlignment="textEnd"
             android:text="@string/text_lainnya"
-            android:textColor="#DBDBDB"
+            android:textColor="@color/black"
             android:textSize="14sp"
             android:fontFamily="@font/roboto_regular"/>
         <HorizontalScrollView
@@ -138,7 +139,7 @@
             android:layout_toEndOf="@id/tvDrinkTitle"
             android:textAlignment="textEnd"
             android:text="@string/text_lainnya"
-            android:textColor="#DBDBDB"
+            android:textColor="@color/black"
             android:textSize="14sp"
             android:fontFamily="@font/roboto_regular"/>
         <HorizontalScrollView
