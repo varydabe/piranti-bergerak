@@ -14,10 +14,12 @@ import com.lebahakatsuki.menuapp.ui.main.adapter.ListDrinkAdapter
 import com.lebahakatsuki.menuapp.ui.main.adapter.ListFoodAdapter
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.DrinkFragmentViewModel
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.FoodFragmentViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 //MAIN
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var foodFragmentViewModel: FoodFragmentViewModel
     private lateinit var drinkFragmentViewModel: DrinkFragmentViewModel
@@ -41,14 +43,6 @@ class MainActivity : AppCompatActivity() {
             it.context.startActivity(intent)
         }
 
-        //Drink Detail
-        ivDrinkIcon.setOnClickListener {
-            val intent = Intent(it.context, ChooseMenuActivity::class.java)
-            intent.putExtra("POSITION", 1)
-            it.context.startActivity(intent)
-        }
-
-        //Food Detail
         tvFoodMore.setOnClickListener {
             val intent = Intent(it.context, ChooseMenuActivity::class.java)
             intent.putExtra("POSITION", 0)
@@ -56,6 +50,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         //Drink Detail
+        ivDrinkIcon.setOnClickListener {
+            val intent = Intent(it.context, ChooseMenuActivity::class.java)
+            intent.putExtra("POSITION", 1)
+            it.context.startActivity(intent)
+        }
+
         tvDrinkMore.setOnClickListener {
             val intent = Intent(it.context, ChooseMenuActivity::class.java)
             intent.putExtra("POSITION", 1)

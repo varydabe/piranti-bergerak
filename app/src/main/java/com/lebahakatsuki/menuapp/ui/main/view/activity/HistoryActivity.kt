@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.ui.main.adapter.OrderAdapter
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.OrderViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_history.*
 
 //History Order Activity
+@AndroidEntryPoint
 class HistoryActivity : AppCompatActivity() {
     private lateinit var orderViewModel: OrderViewModel
 

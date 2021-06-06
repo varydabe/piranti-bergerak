@@ -18,8 +18,10 @@ import com.lebahakatsuki.menuapp.data.model.FoodEntity
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.AddMenuViewModel
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.DrinkFragmentViewModel
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.FoodFragmentViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_add_menu.*
 
+@AndroidEntryPoint
 class AddMenuActivity : AppCompatActivity() {
     private lateinit var foodFragmentViewModel: FoodFragmentViewModel
     private lateinit var drinkFragmentViewModel: DrinkFragmentViewModel

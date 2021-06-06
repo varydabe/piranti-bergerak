@@ -17,10 +17,12 @@ import com.lebahakatsuki.menuapp.ui.main.adapter.ViewPagerAdapter
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.DrinkViewModel
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.FoodViewModel
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.OrderViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_choose_menu.*
 import java.text.NumberFormat
 import java.util.*
 
+@AndroidEntryPoint
 class ChooseMenuActivity : AppCompatActivity() {
     private lateinit var orderViewModel: OrderViewModel
     private val foodViewModel: FoodViewModel by viewModels()
