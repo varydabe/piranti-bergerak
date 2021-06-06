@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.lebahakatsuki.menuapp.data.model.OrderEntity
 
+//Order Database
 @Database(entities = [OrderEntity::class], version = 1)
 abstract class OrderDatabase: RoomDatabase() {
     abstract fun orderDao(): OrderDao

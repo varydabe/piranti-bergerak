@@ -3,7 +3,6 @@ package com.lebahakatsuki.menuapp.ui.main.view.activity
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
-import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,16 +15,15 @@ import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.data.model.OrderEntity
 import com.lebahakatsuki.menuapp.ui.main.adapter.ViewPagerAdapter
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.DrinkViewModel
-import com.lebahakatsuki.menuapp.ui.main.viewmodel.FoodViewodel
+import com.lebahakatsuki.menuapp.ui.main.viewmodel.FoodViewModel
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.OrderViewModel
 import kotlinx.android.synthetic.main.activity_choose_menu.*
 import java.text.NumberFormat
-import java.text.SimpleDateFormat
 import java.util.*
 
 class ChooseMenuActivity : AppCompatActivity() {
     private lateinit var orderViewModel: OrderViewModel
-    private val foodViewodel: FoodViewodel by viewModels()
+    private val foodViewModel: FoodViewModel by viewModels()
     private val drinkViewodel: DrinkViewModel by viewModels()
     private var foodName = ""
     private var drinkName = ""
@@ -53,7 +51,7 @@ class ChooseMenuActivity : AppCompatActivity() {
         viewPager.currentItem = intent.getIntExtra("POSITION", 0)
         tabs.setupWithViewPager(viewPager)
 
-        foodViewodel.selectedFood.observe(this, Observer { item ->
+        foodViewModel.selectedFood.observe(this, Observer { item ->
             foodName = item.nama!!
             foodPrice = item.harga!!
             totalprice = foodPrice + drinkPrice

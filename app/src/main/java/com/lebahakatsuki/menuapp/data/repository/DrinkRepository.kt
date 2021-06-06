@@ -12,9 +12,11 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+//Drink Repository
 class DrinkRepository(private val drinkDao: DrinkDao) {
     val getAllDrink: LiveData<List<DrinkEntity>> = drinkDao.getAllDrink()
 
+    //Add Drink with Drink Entity using Drink DAO
     suspend fun addDrink(drinkEntity: DrinkEntity){
         drinkDao.addDrink(drinkEntity)
     }
@@ -39,6 +41,7 @@ class DrinkRepository(private val drinkDao: DrinkDao) {
             })
         }
 
+        //Get Drink with GetMenuResponseModel
         fun getDrink(): MutableLiveData<GetMenuResponseModel> {
             return dataSet
         }

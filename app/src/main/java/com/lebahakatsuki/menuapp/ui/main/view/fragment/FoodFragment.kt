@@ -14,24 +14,20 @@ import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.data.model.Menu
 import com.lebahakatsuki.menuapp.ui.main.adapter.ListFoodDetailAdapter
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.FoodFragmentViewModel
-import com.lebahakatsuki.menuapp.ui.main.viewmodel.FoodViewodel
+import com.lebahakatsuki.menuapp.ui.main.viewmodel.FoodViewModel
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FoodFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+//Food Fragment
 class FoodFragment : Fragment() {
     lateinit var recyclerviewFoodDetail: RecyclerView
     lateinit var foodFragmentViewModel: FoodFragmentViewModel
     lateinit var adapter: ListFoodDetailAdapter
-    private val foodViewodel: FoodViewodel by activityViewModels()
-    //private var listFood: ArrayList<FoodDrink> = arrayListOf()
+    private val foodViewModel: FoodViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
+    //set viewmodel dan recyclerview serta food data.
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,9 +41,7 @@ class FoodFragment : Fragment() {
         recyclerviewFoodDetail.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 
         foodFragmentViewModel = ViewModelProviders.of(this).get(FoodFragmentViewModel::class.java)
-        /*foodFragmentViewModel.getAllFood.observe(viewLifecycleOwner, Observer {
-            adapter.setData(it)
-        })*/
+
         foodFragmentViewModel.getFood().observe(viewLifecycleOwner, Observer {
             val listFood: List<Menu>? = it.values
             adapter.setData(listFood!!)
@@ -59,16 +53,10 @@ class FoodFragment : Fragment() {
                 onItemClick(menu)
             }
         }
-
-        /*
-        recyclerviewFoodDetail.setHasFixedSize(true)
-
-        listFood.addAll(FoodsData.listData)
-        showRecyclerFood()*/
-
         return v
     }
 
+    //set element onclik
     private fun onRecyclerViewClick(menu: Menu?, position: Int) {
         var data = menu
         data?.flagSelected = 1
@@ -76,12 +64,6 @@ class FoodFragment : Fragment() {
     }
 
     fun onItemClick(menu: Menu) {
-        foodViewodel.selectFood(menu)
+        foodViewModel.selectFood(menu)
     }
-
-    /*private fun showRecyclerFood(){
-        recyclerviewFoodDetail.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        val listFoodDetailAdapter = ListFoodDetailAdapter(listFood)
-        recyclerviewFoodDetail.adapter = listFoodDetailAdapter
-    }*/
 }

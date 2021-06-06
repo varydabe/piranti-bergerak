@@ -10,6 +10,7 @@ import com.lebahakatsuki.menuapp.data.repository.OrderRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+//Order viewmodel
 class OrderViewModel(application: Application): AndroidViewModel(application) {
     val getAllOrder: LiveData<List<OrderEntity>>
     private val repository: OrderRepository

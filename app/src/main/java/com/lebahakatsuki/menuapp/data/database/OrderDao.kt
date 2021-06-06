@@ -7,6 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.lebahakatsuki.menuapp.data.model.OrderEntity
 
+// DAO of Order
 @Dao
 interface OrderDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)

@@ -7,6 +7,7 @@ import com.lebahakatsuki.menuapp.data.model.OrderEntity
 class OrderRepository(private val orderDao: OrderDao) {
     val getAllOrder: LiveData<List<OrderEntity>> = orderDao.getAllOrder()
 
+    //Add Order with Order Entity
     suspend fun addOrder(orderEntity: OrderEntity){
         orderDao.addOrder(orderEntity)
     }

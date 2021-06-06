@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.lebahakatsuki.menuapp.data.model.FoodEntity
 
+//Food Database
 @Database(entities = [FoodEntity::class], version = 1)
 abstract class FoodDatabase: RoomDatabase() {
     abstract fun foodDao(): FoodDao

@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.lebahakatsuki.menuapp.data.model.Menu
 
+//Drink DETAIL viewmodel
 class DrinkViewModel: ViewModel() {
     private val mutableSelectedDrink = MutableLiveData<Menu>()
     val selectedDrink: LiveData<Menu> get() = mutableSelectedDrink

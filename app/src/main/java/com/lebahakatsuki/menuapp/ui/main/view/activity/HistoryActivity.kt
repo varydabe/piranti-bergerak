@@ -11,6 +11,7 @@ import com.lebahakatsuki.menuapp.ui.main.adapter.OrderAdapter
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.OrderViewModel
 import kotlinx.android.synthetic.main.activity_history.*
 
+//History Order Activity
 class HistoryActivity : AppCompatActivity() {
     private lateinit var orderViewModel: OrderViewModel
 
@@ -22,6 +23,7 @@ class HistoryActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        //set orderviewmodel -> get all order lalu tampilkan menggunakna recyclerview.
         orderViewModel = ViewModelProviders.of(this).get(OrderViewModel::class.java)
         orderViewModel.getAllOrder.observe(this, Observer {
             val orderAdapter = OrderAdapter()

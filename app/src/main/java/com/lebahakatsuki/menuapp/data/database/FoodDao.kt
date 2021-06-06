@@ -7,6 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.lebahakatsuki.menuapp.data.model.FoodEntity
 
+//DAO of Food Database
 @Dao
 interface FoodDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
