@@ -16,13 +16,12 @@ import com.lebahakatsuki.menuapp.data.model.Menu
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.DrinkFragmentViewModel
 import com.lebahakatsuki.menuapp.ui.main.viewmodel.DrinkViewModel
 
-
+//Drink Fragment
 class DrinkFragment : Fragment() {
     lateinit var recyclerviewDrinkDetail: RecyclerView
     lateinit var drinkFragmentViewModel: DrinkFragmentViewModel
     lateinit var adapter: ListDrinkDetailAdapter
-    private val drinkViewodel: DrinkViewModel by activityViewModels()
-    //private var listDrink: ArrayList<FoodDrink> = arrayListOf()
+    private val drinkViewModel: DrinkViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,15 +33,14 @@ class DrinkFragment : Fragment() {
     ): View? {
         val v = inflater.inflate(R.layout.fragment_drink, container, false)
 
+        //setting recyclerview and get data of drink
         recyclerviewDrinkDetail = v.findViewById(R.id.recyclerviewDrinkDetail) as RecyclerView
         adapter = ListDrinkDetailAdapter()
         recyclerviewDrinkDetail.adapter = adapter
         recyclerviewDrinkDetail.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 
         drinkFragmentViewModel = ViewModelProviders.of(this).get(DrinkFragmentViewModel::class.java)
-        /*drinkFragmentViewModel.getAllDrink.observe(viewLifecycleOwner, Observer {
-            adapter.setData(it)
-        })*/
+
         drinkFragmentViewModel.getDrink().observe(viewLifecycleOwner, Observer {
             val listDrink: List<Menu>? = it.values
             adapter.setData(listDrink!!)
@@ -54,29 +52,18 @@ class DrinkFragment : Fragment() {
                 onItemClick(menu)
             }
         }
-
-        /*
-        recyclerviewDrinkDetail.setHasFixedSize(true)
-
-        listDrink.addAll(DrinksData.listData)
-        showRecyclerDrink()*/
-
         return v
     }
 
+    //set data when element get click
     private fun onRecyclerViewClick(menu: Menu?, position: Int) {
         var data = menu
         data?.flagSelected = 1
         adapter.setSelectedPos(position)
     }
 
+    //select menu on click.
     fun onItemClick(menu: Menu) {
-        drinkViewodel.selectDrink(menu)
+        drinkViewModel.selectDrink(menu)
     }
-
-    /*private fun showRecyclerDrink(){
-        recyclerviewDrinkDetail.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        val listDrinkDetailAdapter = ListDrinkDetailAdapter(listDrink)
-        recyclerviewDrinkDetail.adapter = listDrinkDetailAdapter
-    }*/
 }

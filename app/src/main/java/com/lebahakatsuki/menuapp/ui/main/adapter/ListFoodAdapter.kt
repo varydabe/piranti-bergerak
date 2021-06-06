@@ -14,6 +14,7 @@ import com.lebahakatsuki.menuapp.data.model.Menu
 import java.text.NumberFormat
 import java.util.*
 
+//Adapter of List Food
 class ListFoodAdapter() : RecyclerView.Adapter<ListFoodAdapter.ListViewHolder>() {
     private var listFood = emptyList<Menu>()
 
@@ -22,19 +23,15 @@ class ListFoodAdapter() : RecyclerView.Adapter<ListFoodAdapter.ListViewHolder>()
         return ListViewHolder(view)
     }
 
+    //Bind data to view holder
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val foodDrink = listFood[position]
-
-        //Glide.with(holder.itemView.context).load(foodDrink.photo).apply(RequestOptions().override(350,550)).into(holder.ivPhoto)
-
         val localeID = Locale("in", "ID")
         val formatRupiah = NumberFormat.getCurrencyInstance(localeID)
         val price = formatRupiah.format(foodDrink.harga).replace("Rp", "Rp ")
 
         holder.tvFood.text = foodDrink.nama
         holder.tvPrice.text = price
-        //holder.tvFood.text = foodDrink.name
-        //holder.tvPrice.text = foodDrink.price
     }
 
     override fun getItemCount(): Int {
@@ -47,6 +44,7 @@ class ListFoodAdapter() : RecyclerView.Adapter<ListFoodAdapter.ListViewHolder>()
         var tvPrice: TextView = itemView.findViewById(R.id.tvPrice)
     }
 
+    //Set data when changes
     fun setData(listFood: List<Menu>){
         this.listFood = listFood
         notifyDataSetChanged()

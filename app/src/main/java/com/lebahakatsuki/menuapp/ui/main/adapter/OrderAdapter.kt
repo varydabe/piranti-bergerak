@@ -11,9 +11,11 @@ import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
+//Adapter for Order
 class OrderAdapter(): RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
     private var listOrder = emptyList<OrderEntity>()
 
+    //get view holder
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var dateTextView: TextView = itemView.findViewById(R.id.dateTextView)
         var timeTextView: TextView = itemView.findViewById(R.id.timeTextView)
@@ -35,9 +37,11 @@ class OrderAdapter(): RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
         return ViewHolder(view)
     }
 
+    //bind data to view holder
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = listOrder[position]
 
+        //set time of order
         val date = Date(item.orderDate)
         val locale = Locale("id", "ID")
         val sdfDate = SimpleDateFormat("EEEE, d MMMM yyyy", locale)
@@ -45,11 +49,13 @@ class OrderAdapter(): RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
         val sdfTime = SimpleDateFormat("HH:mm")
         sdfTime.timeZone = TimeZone.getTimeZone("GMT+7")
 
+        //removing "Rp" from price.
         val formatRupiah = NumberFormat.getCurrencyInstance(locale)
         val foodPrice = formatRupiah.format(item.foodPrice).replace("Rp", "")
         val drinkPrice = formatRupiah.format(item.drinkPrice).replace("Rp", "")
         val totalPrice = formatRupiah.format(item.totalPrice).replace("Rp", "")
 
+        //Bind to view
         holder.dateTextView.text = sdfDate.format(date)
         holder.timeTextView.text = sdfTime.format(date)
         if (item.foodName == "") {
@@ -60,6 +66,7 @@ class OrderAdapter(): RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
             holder.tvFood.text = item.foodName
             holder.tvFoodPrice.text = foodPrice
         }
+
         if (item.drinkName == "") {
             holder.tvDrinkPrice.visibility = View.GONE
             holder.tvDrink.visibility = View.GONE

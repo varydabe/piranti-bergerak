@@ -15,6 +15,7 @@ import retrofit2.Response
 class FoodRepository(private val foodDao: FoodDao) {
     val getAllFood: LiveData<List<FoodEntity>> = foodDao.getAllFood()
 
+    //Add Food with Food Entity
     suspend fun addFood(foodEntity: FoodEntity){
         foodDao.addFood(foodEntity)
     }
@@ -39,6 +40,7 @@ class FoodRepository(private val foodDao: FoodDao) {
             })
         }
 
+        //Get Food with GetMenuResponseModel
         fun getFood(): MutableLiveData<GetMenuResponseModel> {
             return dataSet
         }

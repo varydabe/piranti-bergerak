@@ -26,6 +26,7 @@ class AddMenuActivity : AppCompatActivity() {
     private lateinit var addMenuViewModel: AddMenuViewModel
     private var category: String = ""
 
+    // Notification setting
     companion object {
         private const val NOTIFICATION_ID = 1
         private const val CHANNEL_ID = "channel_01"
@@ -36,6 +37,7 @@ class AddMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_menu)
 
+        //get viewmodel
         foodFragmentViewModel = ViewModelProvider(this).get(FoodFragmentViewModel::class.java)
         drinkFragmentViewModel = ViewModelProvider(this).get(DrinkFragmentViewModel::class.java)
         addMenuViewModel = ViewModelProvider(this).get(AddMenuViewModel::class.java)
@@ -44,8 +46,11 @@ class AddMenuActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        //setting onclicklistener and then send notification
         addButton.setOnClickListener {
             val checkedId = categoryRadioGroup.checkedRadioButtonId
+
+            //harus memilih menu -> click order
             if (checkedId == -1){
                 Toast.makeText(it.context, "Harus memilih salah satu", Toast.LENGTH_SHORT).show()
             } else {
@@ -57,16 +62,17 @@ class AddMenuActivity : AppCompatActivity() {
                 } else if (harga.toString().isNullOrEmpty()) {
                     priceEditText.error = "Harga harus diisi"
                 } else {
+                    //create addmenurequestmodel
                     val addMenuRequestModel = AddMenuRequestModel(nama, harga, category)
                     addMenuViewModel.addMenu(addMenuRequestModel)
                     sendNotification(nama)
                     finish()
-                    //insertDataToDatabase(menuEditText.text.toString(), category,priceEditText.text.toString())
                 }
             }
         }
     }
 
+    //setting up radio button for food and drink
     private fun findRadioButton(checkedId: Int) {
         when(checkedId){
             R.id.foodRadioButton -> category = "food"
@@ -75,6 +81,7 @@ class AddMenuActivity : AppCompatActivity() {
         }
     }
 
+    //Add menu to database (not used right now because add menu to API using POST)
     private fun insertDataToDatabase(menuName: String, category: String, price: String) {
         if (inputCheck(menuName, category, price)){
             if (category.equals("Food")){
@@ -91,10 +98,12 @@ class AddMenuActivity : AppCompatActivity() {
         }
     }
 
+    //Memastikan kalau input tidak kosong.
     private fun inputCheck(menuName: String, category: String, price: String): Boolean{
         return !(TextUtils.isEmpty(menuName) && TextUtils.isEmpty(category) && TextUtils.isEmpty(price))
     }
 
+    //Mengirimkan notifikasi ketika add menu.
     private fun sendNotification(name: String) {
         val mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val mBuilder = NotificationCompat.Builder(this, CHANNEL_ID)

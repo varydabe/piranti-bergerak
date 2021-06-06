@@ -9,6 +9,7 @@ import com.lebahakatsuki.menuapp.data.repository.FoodRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+//Foodfragment viewmodel
 class FoodFragmentViewModel(application: Application): AndroidViewModel(application) {
     private val getAllFood: LiveData<List<FoodEntity>>
     private val repository: FoodRepository
@@ -25,19 +26,6 @@ class FoodFragmentViewModel(application: Application): AndroidViewModel(applicat
             repository.addFood(foodEntity)
         }
     }
-    /*
-    var arrayListMutableLiveData = MutableLiveData<ArrayList<FoodDrink>>()
-
-    var arrayList = ArrayList<FoodDrink>()
-
-    fun getArrayList(): MutableLiveData<ArrayList<FoodDrink>>{
-
-        arrayList.addAll(FoodsData.listData)
-
-        arrayListMutableLiveData.value = arrayList
-
-        return arrayListMutableLiveData
-    }*/
 
     fun getFood(): LiveData<GetMenuResponseModel> {
         FoodRepository.init()
