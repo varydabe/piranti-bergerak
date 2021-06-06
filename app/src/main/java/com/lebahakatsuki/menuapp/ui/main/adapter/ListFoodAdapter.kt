@@ -1,5 +1,6 @@
 package com.lebahakatsuki.menuapp.ui.main.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,8 @@ import com.bumptech.glide.request.RequestOptions
 import com.lebahakatsuki.menuapp.R
 import com.lebahakatsuki.menuapp.data.model.FoodDrink
 import com.lebahakatsuki.menuapp.data.model.Menu
+import com.lebahakatsuki.menuapp.ui.main.view.activity.ChooseMenuActivity
+import kotlinx.android.synthetic.main.activity_main.*
 import java.text.NumberFormat
 import java.util.*
 
@@ -20,8 +23,11 @@ class ListFoodAdapter() : RecyclerView.Adapter<ListFoodAdapter.ListViewHolder>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.list_food, parent, false)
+
         return ListViewHolder(view)
     }
+
+
 
     //Bind data to view holder
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {

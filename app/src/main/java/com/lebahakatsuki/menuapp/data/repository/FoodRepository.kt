@@ -11,8 +11,9 @@ import com.lebahakatsuki.menuapp.data.network.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class FoodRepository(private val foodDao: FoodDao) {
+class FoodRepository @Inject constructor(private val foodDao: FoodDao) {
     val getAllFood: LiveData<List<FoodEntity>> = foodDao.getAllFood()
 
     //Add Food with Food Entity
